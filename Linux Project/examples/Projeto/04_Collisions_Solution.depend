@@ -604,3 +604,32 @@
 	<tmx/MapLoader.h>
 	<string>
 
+1490641306 source:/home/13104397/Desktop/Linux/Linux Project/examples/Projeto/main.cpp
+	<iostream>
+	<cstdlib>
+	<string>
+	<cmath>
+	"Game.h"
+	"PlayState.h"
+
+1490641306 /home/13104397/Desktop/Linux/Linux Project/examples/Projeto/PlayState.h
+	"GameState.h"
+	"Sprite.h"
+	"InputManager.h"
+	<tmx/MapLoader.h>
+	<string>
+
+1490641306 source:/home/13104397/Desktop/Linux/Linux Project/examples/Projeto/PlayState_Solution.cpp
+	<iostream>
+	<cmath>
+	"Game.h"
+	"PlayState_Solution.h"
+	"InputManager.h"
+
+1490641306 /home/13104397/Desktop/Linux/Linux Project/examples/Projeto/PlayState_Solution.h
+	"GameState.h"
+	"Sprite.h"
+	"InputManager.h"
+	<tmx/MapLoader.h>
+	<string>
+
