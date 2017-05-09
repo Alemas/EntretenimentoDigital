@@ -106,9 +106,8 @@
 		<Linker>
 			<Add directory="../../lib" />
 		</Linker>
-		<Unit filename="PlayState_Solution.cpp" />
+		<Unit filename="../../../../TopDownShooter/src/SplashScreenState.cpp" />
 		<Unit filename="PlayState_Solution.h" />
-		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

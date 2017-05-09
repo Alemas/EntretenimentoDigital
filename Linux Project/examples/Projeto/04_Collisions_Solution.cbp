@@ -14,6 +14,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add library="sfml-graphics" />
@@ -36,6 +37,7 @@
 				<Option use_console_runner="0" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -58,6 +60,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add library="../../bin/sfml-graphics-2.dll" />
@@ -81,6 +84,7 @@
 				<Option use_console_runner="0" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -102,13 +106,19 @@
 			<Add directory="../../lib/CGF/include/pugixml" />
 			<Add directory="../../lib/Box2D-2.3.0/include" />
 			<Add directory="../../lib/SFML-2.4.2/include" />
+			<Add directory="include" />
+			<Add directory="src" />
 		</Compiler>
 		<Linker>
 			<Add directory="../../lib" />
 		</Linker>
 		<Unit filename="PlayState_Solution.cpp" />
 		<Unit filename="PlayState_Solution.h" />
+		<Unit filename="include/MenuState.h" />
+		<Unit filename="include/SplashState.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/MenuState.cpp" />
+		<Unit filename="src/SplashState.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
