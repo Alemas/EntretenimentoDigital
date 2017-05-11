@@ -1,0 +1,23 @@
+#ifndef CALCULATOR_H
+#define CALCULATOR_H
+
+#include <SFML/Graphics.hpp>
+#include<cmath>
+
+
+class Calculator
+{
+    public:
+
+        static float angleBetweenPoints(sf::Vector2f p1, sf::Vector2f p2);
+        static float toDegrees(float radiansValue);
+
+    protected:
+
+        Calculator() {}
+
+    private:
+
+};
+
+#endif // CALCULATOR_H

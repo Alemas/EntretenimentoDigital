@@ -35,7 +35,6 @@ void MenuState::init() {
 
 
     cout << "MenuState: init" << endl;
-
 }
 
 void MenuState::cleanup() {
@@ -158,7 +157,7 @@ void MenuState::handleClick(Vector2i mousePos, cgf::Game* game) {
         if (button.bounds.contains(x, y)) {
             switch(button.action) {
             case MenuButton::MenuAction::Play :
-//                changeState(game, PlayState::instance()));
+                changeState(game, GameplayState::instance());
                 break;
             case MenuButton::MenuAction::Quit :
                 game->quit();

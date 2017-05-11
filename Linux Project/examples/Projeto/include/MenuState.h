@@ -5,6 +5,7 @@
 #include <list>
 
 #include "GameState.h"
+#include "GameplayState.h"
 
 class MenuState : public cgf::GameState
 {

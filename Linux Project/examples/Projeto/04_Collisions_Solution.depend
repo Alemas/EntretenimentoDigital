@@ -612,11 +612,34 @@
 1494356896 source:/home/mateus/Desktop/EntretenimentoDigital/Linux Project/examples/Projeto/src/SplashState.cpp
 	"SplashState.h"
 
-1494356598 /home/mateus/Desktop/EntretenimentoDigital/Linux Project/examples/Projeto/include/MenuState.h
+1494442828 /home/mateus/Desktop/EntretenimentoDigital/Linux Project/examples/Projeto/include/MenuState.h
 	<iostream>
 	<list>
 	"GameState.h"
+	"GameplayState.h"
 
-1494356759 source:/home/mateus/Desktop/EntretenimentoDigital/Linux Project/examples/Projeto/src/MenuState.cpp
+1494442840 source:/home/mateus/Desktop/EntretenimentoDigital/Linux Project/examples/Projeto/src/MenuState.cpp
 	"MenuState.h"
+
+1494447272 source:/home/mateus/Desktop/EntretenimentoDigital/Linux Project/examples/Projeto/src/GameplayState.cpp
+	"GameplayState.h"
+
+1494443101 /home/mateus/Desktop/EntretenimentoDigital/Linux Project/examples/Projeto/include/GameplayState.h
+	<GameState.h>
+	<Player.h>
+
+1494446881 source:/home/mateus/Desktop/EntretenimentoDigital/Linux Project/examples/Projeto/src/Calculator.cpp
+	"Calculator.h"
+
+1494446554 /home/mateus/Desktop/EntretenimentoDigital/Linux Project/examples/Projeto/include/Calculator.h
+	<SFML/Graphics.hpp>
+	<cmath>
+
+1494446846 source:/home/mateus/Desktop/EntretenimentoDigital/Linux Project/examples/Projeto/src/Player.cpp
+	"Player.h"
+
+1494445654 /home/mateus/Desktop/EntretenimentoDigital/Linux Project/examples/Projeto/include/Player.h
+	<Sprite.h>
+	<iostream>
+	"Calculator.h"
 

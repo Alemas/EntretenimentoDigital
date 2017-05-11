@@ -114,10 +114,16 @@
 		</Linker>
 		<Unit filename="PlayState_Solution.cpp" />
 		<Unit filename="PlayState_Solution.h" />
+		<Unit filename="include/Calculator.h" />
+		<Unit filename="include/GameplayState.h" />
 		<Unit filename="include/MenuState.h" />
+		<Unit filename="include/Player.h" />
 		<Unit filename="include/SplashState.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Calculator.cpp" />
+		<Unit filename="src/GameplayState.cpp" />
 		<Unit filename="src/MenuState.cpp" />
+		<Unit filename="src/Player.cpp" />
 		<Unit filename="src/SplashState.cpp" />
 		<Extensions>
 			<code_completion />

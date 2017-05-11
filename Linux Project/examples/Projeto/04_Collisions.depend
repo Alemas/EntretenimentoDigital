@@ -1871,13 +1871,13 @@
 	"PlayState.h"
 	"InputManager.h"
 
-1494022652 source:/home/mateus/Desktop/EntretenimentoDigital/Linux Project/examples/Projeto/main.cpp
+1494297813 source:/home/mateus/Desktop/EntretenimentoDigital/Linux Project/examples/Projeto/main.cpp
 	<iostream>
 	<cstdlib>
 	<string>
 	<cmath>
 	"Game.h"
-	"PlayState.h"
+	"SplashState.h"
 
 1494022652 /home/mateus/Desktop/EntretenimentoDigital/Linux Project/lib/CGF/include/Game.h
 	<SFML/Audio.hpp>
@@ -2461,4 +2461,11 @@
 
 1494022652 /home/mateus/Desktop/EntretenimentoDigital/Linux Project/lib/CGF/include/Debug.h
 	<iostream>
+
+1494022652 source:/home/mateus/Desktop/EntretenimentoDigital/Linux Project/examples/Projeto/PlayState.cpp
+	<iostream>
+	<cmath>
+	"Game.h"
+	"PlayState.h"
+	"InputManager.h"
 
