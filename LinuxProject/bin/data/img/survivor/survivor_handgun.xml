@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:86b5279abad7a162a432f02705d7efef:f43215706e96abf4915c1f167742c4bc:c78eb902cb1f0c75354b5ec3ffa04dbb$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+pX => x pos of the pivot point (relative to sprite width)
+pY => y pos of the pivot point (relative to sprite height)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+with polygon mode enabled:
+vertices   => points in sprite coordinate system (x0,y0,x1,y1,x2,y2, ...)
+verticesUV => points in sheet coordinate system (x0,y0,x1,y1,x2,y2, ...)
+triangles  => sprite triangulation, 3 vertex indices per triangle
+-->
+<TextureAtlas imagePath="survivor_handgun.png" width="2037" height="2320">
+    <sprite n="survivor-idle_handgun_0.png" x="1265" y="216" w="253" h="216" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-idle_handgun_1.png" x="1518" y="216" w="253" h="216" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-idle_handgun_2.png" x="506" y="0" w="253" h="216" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-idle_handgun_3.png" x="759" y="0" w="253" h="216" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-idle_handgun_4.png" x="253" y="0" w="253" h="216" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-idle_handgun_5.png" x="1012" y="0" w="253" h="216" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-idle_handgun_6.png" x="1265" y="0" w="253" h="216" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-idle_handgun_7.png" x="1771" y="0" w="253" h="216" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-idle_handgun_8.png" x="0" y="216" w="253" h="216" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-idle_handgun_9.png" x="1518" y="0" w="253" h="216" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-idle_handgun_10.png" x="1012" y="216" w="253" h="216" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-idle_handgun_11.png" x="1771" y="216" w="253" h="216" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-idle_handgun_12.png" x="759" y="216" w="253" h="216" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-idle_handgun_13.png" x="0" y="432" w="253" h="216" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-idle_handgun_14.png" x="759" y="432" w="253" h="216" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-idle_handgun_15.png" x="506" y="432" w="253" h="216" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-idle_handgun_16.png" x="253" y="432" w="253" h="216" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-idle_handgun_17.png" x="506" y="216" w="253" h="216" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-idle_handgun_18.png" x="0" y="0" w="253" h="216" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-idle_handgun_19.png" x="253" y="216" w="253" h="216" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-meleeattack_handgun_0.png" x="1560" y="1552" w="291" h="256" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-meleeattack_handgun_1.png" x="0" y="1808" w="291" h="256" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-meleeattack_handgun_2.png" x="582" y="1808" w="291" h="256" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-meleeattack_handgun_3.png" x="0" y="2064" w="291" h="256" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-meleeattack_handgun_4.png" x="582" y="2064" w="291" h="256" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-meleeattack_handgun_5.png" x="1455" y="2064" w="291" h="256" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-meleeattack_handgun_6.png" x="1164" y="2064" w="291" h="256" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-meleeattack_handgun_7.png" x="1746" y="2064" w="291" h="256" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-meleeattack_handgun_8.png" x="873" y="2064" w="291" h="256" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-meleeattack_handgun_9.png" x="291" y="2064" w="291" h="256" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-meleeattack_handgun_10.png" x="873" y="1808" w="291" h="256" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-meleeattack_handgun_11.png" x="291" y="1808" w="291" h="256" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-meleeattack_handgun_12.png" x="1455" y="1808" w="291" h="256" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-meleeattack_handgun_13.png" x="1746" y="1808" w="291" h="256" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-meleeattack_handgun_14.png" x="1164" y="1808" w="291" h="256" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-move_handgun_0.png" x="1032" y="1092" w="258" h="220" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-move_handgun_1.png" x="774" y="1092" w="258" h="220" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-move_handgun_2.png" x="516" y="872" w="258" h="220" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-move_handgun_3.png" x="258" y="1092" w="258" h="220" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-move_handgun_4.png" x="1290" y="872" w="258" h="220" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-move_handgun_5.png" x="1032" y="872" w="258" h="220" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-move_handgun_6.png" x="1548" y="872" w="258" h="220" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-move_handgun_7.png" x="774" y="872" w="258" h="220" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-move_handgun_8.png" x="258" y="872" w="258" h="220" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-move_handgun_9.png" x="0" y="872" w="258" h="220" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-move_handgun_10.png" x="516" y="1092" w="258" h="220" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-move_handgun_11.png" x="258" y="652" w="258" h="220" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-move_handgun_12.png" x="1032" y="652" w="258" h="220" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-move_handgun_13.png" x="774" y="652" w="258" h="220" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-move_handgun_14.png" x="0" y="1092" w="258" h="220" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-move_handgun_15.png" x="1290" y="652" w="258" h="220" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-move_handgun_16.png" x="516" y="652" w="258" h="220" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-move_handgun_17.png" x="0" y="652" w="258" h="220" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-move_handgun_18.png" x="1777" y="432" w="258" h="220" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-move_handgun_19.png" x="1548" y="652" w="258" h="220" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-reload_handgun_0.png" x="0" y="1322" w="260" h="230" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-reload_handgun_1.png" x="780" y="1322" w="260" h="230" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-reload_handgun_2.png" x="260" y="1552" w="260" h="230" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-reload_handgun_3.png" x="1560" y="1322" w="260" h="230" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-reload_handgun_4.png" x="520" y="1552" w="260" h="230" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-reload_handgun_5.png" x="1300" y="1552" w="260" h="230" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-reload_handgun_6.png" x="1040" y="1552" w="260" h="230" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-reload_handgun_7.png" x="1300" y="1322" w="260" h="230" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-reload_handgun_8.png" x="1040" y="1322" w="260" h="230" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-reload_handgun_9.png" x="1550" y="1092" w="260" h="230" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-reload_handgun_10.png" x="260" y="1322" w="260" h="230" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-reload_handgun_11.png" x="520" y="1322" w="260" h="230" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-reload_handgun_12.png" x="1290" y="1092" w="260" h="230" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-reload_handgun_13.png" x="780" y="1552" w="260" h="230" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-reload_handgun_14.png" x="0" y="1552" w="260" h="230" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-shoot_handgun_0.png" x="1267" y="432" w="255" h="215" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-shoot_handgun_1.png" x="1012" y="432" w="255" h="215" pX="0.5" pY="0.5"/>
+    <sprite n="survivor-shoot_handgun_2.png" x="1522" y="432" w="255" h="215" pX="0.5" pY="0.5"/>
+</TextureAtlas>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Format:
+name   => name of the animation sequence
+start  => starting frame
+end    => ending frame
+loop   => looping animation (default)
+-->
+<animation name="survivor_handgun_move">
+    <sequence name="move"  start="0" end="19" loop="true" />
+</animation>

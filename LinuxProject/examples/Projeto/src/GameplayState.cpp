@@ -14,6 +14,7 @@ void GameplayState::init() {
     im->addKeyInput("Right", Keyboard::D);
     im->addKeyInput("Up", Keyboard::W);
     im->addKeyInput("Down", Keyboard::S);
+    im->addKeyInput("Shift", Keyboard::LShift);
     im->addKeyInput("Num1", Keyboard::Num1);
     im->addKeyInput("Num2", Keyboard::Num2);
     im->addKeyInput("Num3", Keyboard::Num3);
@@ -55,6 +56,7 @@ void GameplayState::handleEvents(cgf::Game* game) {
 
     int dirx = 0;
     int diry = 0;
+    bool sprint = false;
 
     if (im->testEvent("Left")) {
         dirx -= 1;
@@ -68,8 +70,11 @@ void GameplayState::handleEvents(cgf::Game* game) {
     if (im->testEvent("Down")) {
         diry += 1;
     }
+    if(im->testEvent("Shift")) {
+        sprint = true;
+    }
 
-    player.updateMovement(Mouse::getPosition(*screen), Vector2i(dirx,diry), false);
+    player.updateMovement(Mouse::getPosition(*screen), Vector2i(dirx,diry), sprint);
 
     cout << "GameplayState: handleEvents" << endl;
 }

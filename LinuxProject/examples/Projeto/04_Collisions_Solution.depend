@@ -1184,7 +1184,7 @@
 	<InputManager.h>
 	<Player.h>
 
-1494513868 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/include/Player.h
+1494562472 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/include/Player.h
 	<Sprite.h>
 	<iostream>
 	"Calculator.h"
@@ -1273,12 +1273,12 @@
 1494521442 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/MenuState.cpp
 	"MenuState.h"
 
-1494516594 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/Player.cpp
+1494562536 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/Player.cpp
 	"Player.h"
 
 1494468450 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/SplashState.cpp
 	"SplashState.h"
 
-1494513957 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/GameplayState.cpp
+1494562424 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/GameplayState.cpp
 	"GameplayState.h"
 

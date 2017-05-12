@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Format:
+name   => name of the animation sequence
+start  => starting frame
+end    => ending frame
+loop   => looping animation (default)
+-->
+<animation name="survivor_handgun">
+    <sequence name="idle"  start="0" end="19" loop="true" />
+    <sequence name="meleeattack"  start="20" end="34" loop="false" />
+    <sequence name="move"  start="35" end="54" loop="true" />
+    <sequence name="reload"  start="55" end="69" loop="false" />
+    <sequence name="shoot"  start="70" end="72" loop="false" />
+</animation>

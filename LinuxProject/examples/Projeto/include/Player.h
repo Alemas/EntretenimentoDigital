@@ -25,8 +25,8 @@ class Player : public cgf::Sprite
     FeetState feetState = FeetState::Feet_Idle;
     TopState topState = TopState::Top_Idle;
 
-    int walkSpeed = 100;
-    int runSpeed = 200;
+    int walkSpeed = 150;
+    int runSpeed = 300;
 
     cgf::Sprite feetSprite;
 
