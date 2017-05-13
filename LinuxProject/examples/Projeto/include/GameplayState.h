@@ -38,7 +38,9 @@ class GameplayState : public cgf::GameState
     cgf::InputManager* im;
     tmx::MapLoader* map;
     Player player;
-
+    void centerMapOnPlayer();
+    bool checkCollision(uint8_t layer, cgf::Game* game, cgf::Sprite* obj);
+    sf::Uint16 getCellFromMap(uint8_t layernum, float x, float y);
 };
 
 #endif // GAMEPLAYSTATE_H

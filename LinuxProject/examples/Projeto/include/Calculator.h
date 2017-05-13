@@ -3,7 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include<cmath>
-
+#define M_PI 3.14159265358979323846
 
 class Calculator
 {

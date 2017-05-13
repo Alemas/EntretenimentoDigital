@@ -160,7 +160,7 @@ void PlayState::update(cgf::Game* game)
     if(checkCollision(2, game, &enemy))
         enemy.setXspeed(-enemy.getXspeed());
     //enemy.update(game->getUpdateInterval());
-//    player.update(game->getUpdateInterval());
+    player.update(game->getUpdateInterval());
     if(player.bboxCollision(enemy)) {
         enemy.setVisible(false);
     }
