@@ -15,23 +15,25 @@ class Player : public cgf::Sprite
         void init();
 
         void updateMovement(sf::Vector2i lookingPoint, sf::Vector2i moveDirection, bool sprint);
+        void shoot();
+        void reload();
+        void changeWeapon(int slot);
 
     protected:
 
     private:
     enum FeetState {Feet_Idle, Walk, Run, Strafe_Left, Strafe_Right};
-    enum TopState {Top_Idle, Move, Melee, Shoot, Reload};
+    enum TopState {Top_Idle, Top_Walk, Top_Run, Melee, Shoot, Reload};
 
-    FeetState feetState = FeetState::Feet_Idle;
-    TopState topState = TopState::Top_Idle;
+    FeetState feetState;
+    TopState topState = Reload;
 
     int walkSpeed = 150;
-    int runSpeed = 300;
+    int runSpeed = 220;
 
     cgf::Sprite feetSprite;
 
-    void updateAnimation();
-
+    void updateState(TopState state);
 };
 
 #endif // PLAYER_H

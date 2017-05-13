@@ -3,12 +3,17 @@
 using namespace std;
 using namespace sf;
 using namespace cgf;
+using namespace tmx;
 
 GameplayState GameplayState::m_GameplayState;
 
 void GameplayState::init() {
     player.init();
     im = InputManager::instance();
+
+    map = new tmx::MapLoader("data/maps");       // all maps/tiles will be read from data/maps
+    // map->AddSearchPath("data/maps/tilesets"); // e.g.: adding more search paths for tilesets
+    map->Load("dungeon-tilesets2.tmx");
 
     im->addKeyInput("Left", Keyboard::A);
     im->addKeyInput("Right", Keyboard::D);
@@ -91,6 +96,7 @@ void GameplayState::update(cgf::Game* game) {
 void GameplayState::draw(cgf::Game* game) {
     screen = game->getScreen();
 
+    map->Draw(*screen);
     screen->draw(player);
 
     cout << "GameplayState: draw" << endl;

@@ -17,21 +17,35 @@ Player::~Player()
 
 void Player::init() {
 
-    load("data/img/survivor/survivor_handgun_move.png", 258, 220, 0, 0, 0, 0, 7, 3, 20);
-    loadAnimation("data/img/survivor/survivor_handgun_move_anim.xml");
+    load("data/img/survivor/survivor1.png", 179, 179, 0, 0, 0, 0, 5, 8);
+    loadAnimation("data/img/survivor/survivor1_anim.xml");
 
-//    load("data/img/survivor/survivor_handgun_idle.png", 253, 216, 0, 0, 0, 0, 4, 5, 20);
+//    load("data/img/survivor/survivor_handgun_move.png", 258, 220, 0, 0, 0, 0, 7, 3, 20);
+//    loadAnimation("data/img/survivor/survivor_handgun_move_anim.xml");
+//
+//    load("data/img/survivor/survivor_handgun_move.png", 258, 220, 0, 0, 0, 0, 7, 3, 20);
 //    loadAnimation("data/img/survivor/survivor_handgun_idle_anim.xml");
 
-    setAnimation("move");
-    setAnimRate(20);
-    play();
-
-    setOrigin(getSize().x/3, getSize().y - 80);
+//    setScale(0.5, 0.5);
+    setOrigin(getSize().x/2.0, getSize().y/2.0);
     setPosition(500, 500);
-    setScale(0.7, 0.7);
+
+    updateState(Top_Idle);
+    play();
+}
+
+void Player::shoot() {
+    //usa a rotation do proprio sprite
+}
+
+void Player::reload() {
+    //timer que impede de atirar, tbm roda torna reloading true
+}
+
+void Player::changeWeapon(int slot) {
 
 }
+
 
 void Player::updateMovement(sf::Vector2i lookingPoint, sf::Vector2i moveDirection, bool sprint) {
 
@@ -44,18 +58,52 @@ void Player::updateMovement(sf::Vector2i lookingPoint, sf::Vector2i moveDirectio
 
     setRotation(topRotation);
 
-    if (sprint) {
-        setXspeed(moveDirection.x * runSpeed);
-        setYspeed(moveDirection.y * runSpeed);
+    TopState s = Top_Idle;
+
+    if (moveDirection == VECTOR_ZERO) {
+        setXspeed(0);
+        setYspeed(0);
+        s = Top_Idle;
     } else {
-        setXspeed(moveDirection.x * walkSpeed);
-        setYspeed(moveDirection.y * walkSpeed);
+        if (sprint) {
+            setXspeed(moveDirection.x * runSpeed);
+            setYspeed(moveDirection.y * runSpeed);
+            s = Top_Run;
+        } else {
+            setXspeed(moveDirection.x * walkSpeed);
+            setYspeed(moveDirection.y * walkSpeed);
+            s = Top_Walk;
+        }
     }
 
-    if (moveDirection == VECTOR_ZERO)
-        pause();
-    else
-        play();
-
+    updateState(s);
 //    cout << moveDirection.x << ", " << moveDirection.y << endl;
 }
+
+void Player::updateState(TopState state) {
+
+    if (state != topState) {
+        switch(state) {
+        case Top_Idle :
+            setAnimRate(15);
+            setAnimation("idle");
+            break;
+
+        case Top_Walk :
+            setAnimRate(30);
+            setAnimation("move");
+            break;
+
+        case Top_Run :
+            setAnimRate(55);
+            setAnimation("move");
+            break;
+
+        default: ;
+        }
+
+        topState = state;
+        play();
+    }
+}
+

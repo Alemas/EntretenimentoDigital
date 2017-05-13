@@ -6,6 +6,7 @@
 #include <GameState.h>
 #include <InputManager.h>
 #include <Player.h>
+#include <tmx/MapLoader.h>
 
 class GameplayState : public cgf::GameState
 {
@@ -35,6 +36,7 @@ class GameplayState : public cgf::GameState
 
     sf::RenderWindow* screen;
     cgf::InputManager* im;
+    tmx::MapLoader* map;
     Player player;
 
 };
