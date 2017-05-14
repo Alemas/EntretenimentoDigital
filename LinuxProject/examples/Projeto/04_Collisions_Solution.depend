@@ -1818,11 +1818,12 @@
 	"GameState.h"
 	"GameplayState.h"
 
-1494701844 c:\users\bruno\desktop\entretenimento\entretenimentodigital\linuxproject\examples\projeto\include\gameplaystate.h
+1494797708 c:\users\bruno\desktop\entretenimento\entretenimentodigital\linuxproject\examples\projeto\include\gameplaystate.h
 	<iostream>
 	<GameState.h>
 	<InputManager.h>
 	<Player.h>
+	<Enemy.h>
 	<tmx/MapLoader.h>
 
 1494697717 c:\users\bruno\desktop\entretenimento\entretenimentodigital\linuxproject\lib\cgf\include\inputmanager.h
@@ -1911,7 +1912,7 @@
 1494699035 source:c:\users\bruno\desktop\entretenimento\entretenimentodigital\linuxproject\examples\projeto\src\calculator.cpp
 	"Calculator.h"
 
-1494701930 source:c:\users\bruno\desktop\entretenimento\entretenimentodigital\linuxproject\examples\projeto\src\gameplaystate.cpp
+1494798947 source:c:\users\bruno\desktop\entretenimento\entretenimentodigital\linuxproject\examples\projeto\src\gameplaystate.cpp
 	"GameplayState.h"
 
 1494697715 source:c:\users\bruno\desktop\entretenimento\entretenimentodigital\linuxproject\examples\projeto\src\menustate.cpp
@@ -1922,4 +1923,13 @@
 
 1494697715 source:c:\users\bruno\desktop\entretenimento\entretenimentodigital\linuxproject\examples\projeto\src\splashstate.cpp
 	"SplashState.h"
+
+1494800253 c:\users\bruno\desktop\entretenimento\entretenimentodigital\linuxproject\examples\projeto\include\enemy.h
+	<Sprite.h>
+	<iostream>
+	<Player.h>
+	"Calculator.h"
+
+1494800218 source:c:\users\bruno\desktop\entretenimento\entretenimentodigital\linuxproject\examples\projeto\src\enemy.cpp
+	"Enemy.h"
 
