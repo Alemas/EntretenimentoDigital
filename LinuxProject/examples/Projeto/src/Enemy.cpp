@@ -17,7 +17,7 @@ void Enemy::init(sf::Vector2i position){
 
     load("data/img/survivor/survivor1.png", 179, 179, 0, 0, 0, 0, 5, 8);
     loadAnimation("data/img/survivor/survivor1_anim.xml");
-    //setColor(Color(255,0,0,255));
+    setColor(Color(255,0,0,255));
     setOrigin(getSize().x/2.0, getSize().y/2.0);
     setPosition(Vector2f(position));
     updateState(Top_Idle);
