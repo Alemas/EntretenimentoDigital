@@ -9,7 +9,9 @@ GameplayState GameplayState::m_GameplayState;
 
 void GameplayState::init() {
     player.init();
-    enemy.init();
+
+    //set enemy position
+    enemy.init(Vector2i(1000,300));
 
     im = InputManager::instance();
 
@@ -91,8 +93,14 @@ void GameplayState::update(cgf::Game* game) {
 
     screen = game->getScreen();
     checkCollision(1, game, &player);
+    checkCollision(1, game, &enemy);
     player.update(game->getUpdateInterval(), true);
     enemy.update(game->getUpdateInterval(),true);
+
+    if(player.bboxCollision(enemy)) {
+        //jogador morreu
+        player.setVisible(false);
+    }
     centerMapOnPlayer();
     //cout << "GameplayState: update" << endl;
 }

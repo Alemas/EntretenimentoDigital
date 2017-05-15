@@ -1912,7 +1912,7 @@
 1494699035 source:c:\users\bruno\desktop\entretenimento\entretenimentodigital\linuxproject\examples\projeto\src\calculator.cpp
 	"Calculator.h"
 
-1494798947 source:c:\users\bruno\desktop\entretenimento\entretenimentodigital\linuxproject\examples\projeto\src\gameplaystate.cpp
+1494800949 source:c:\users\bruno\desktop\entretenimento\entretenimentodigital\linuxproject\examples\projeto\src\gameplaystate.cpp
 	"GameplayState.h"
 
 1494697715 source:c:\users\bruno\desktop\entretenimento\entretenimentodigital\linuxproject\examples\projeto\src\menustate.cpp
@@ -1924,12 +1924,12 @@
 1494697715 source:c:\users\bruno\desktop\entretenimento\entretenimentodigital\linuxproject\examples\projeto\src\splashstate.cpp
 	"SplashState.h"
 
-1494800253 c:\users\bruno\desktop\entretenimento\entretenimentodigital\linuxproject\examples\projeto\include\enemy.h
+1494800684 c:\users\bruno\desktop\entretenimento\entretenimentodigital\linuxproject\examples\projeto\include\enemy.h
 	<Sprite.h>
 	<iostream>
 	<Player.h>
 	"Calculator.h"
 
-1494800218 source:c:\users\bruno\desktop\entretenimento\entretenimentodigital\linuxproject\examples\projeto\src\enemy.cpp
+1494800724 source:c:\users\bruno\desktop\entretenimento\entretenimentodigital\linuxproject\examples\projeto\src\enemy.cpp
 	"Enemy.h"
 

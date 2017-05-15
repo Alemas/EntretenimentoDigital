@@ -12,7 +12,7 @@ class Enemy:public cgf::Sprite{
         Enemy();
         virtual ~Enemy();
 
-        void init();
+        void init(sf::Vector2i position);
 
         void movement(Player player);
 
