@@ -21,8 +21,8 @@
 					<Add library="sfml-window" />
 					<Add library="sfml-system" />
 					<Add library="sfml-audio" />
-					<Add library="Box2D" />
 					<Add library="CGF-Linux" />
+					<Add library="Box2D" />
 					<Add library="libz" />
 					<Add directory="../../lib/Box2D-2.3.0/lib-Linux64" />
 					<Add directory="../../lib/SFML-2.4.2/lib-Linux64" />
@@ -115,12 +115,14 @@
 		<Unit filename="PlayState_Solution.cpp" />
 		<Unit filename="PlayState_Solution.h" />
 		<Unit filename="include/Calculator.h" />
+		<Unit filename="include/Enemy.h" />
 		<Unit filename="include/GameplayState.h" />
 		<Unit filename="include/MenuState.h" />
 		<Unit filename="include/Player.h" />
 		<Unit filename="include/SplashState.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Calculator.cpp" />
+		<Unit filename="src/Enemy.cpp" />
 		<Unit filename="src/GameplayState.cpp" />
 		<Unit filename="src/MenuState.cpp" />
 		<Unit filename="src/Player.cpp" />

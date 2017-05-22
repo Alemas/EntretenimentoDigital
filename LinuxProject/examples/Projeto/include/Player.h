@@ -4,13 +4,14 @@
 #include <Sprite.h>
 #include <iostream>
 #include "Calculator.h"
-
+#include "Physics.h"
 
 class Player : public cgf::Sprite
 {
     public:
         Player();
         virtual ~Player();
+        b2Body* body;
 
         void init();
 
@@ -24,6 +25,8 @@ class Player : public cgf::Sprite
     private:
     enum FeetState {Feet_Idle, Walk, Run, Strafe_Left, Strafe_Right};
     enum TopState {Top_Idle, Top_Walk, Top_Run, Melee, Shoot, Reload};
+
+    cgf::Physics* physics;
 
     FeetState feetState;
     TopState topState = Reload;

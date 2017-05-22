@@ -20,60 +20,60 @@ void Enemy::init(sf::Vector2i position){
     setColor(Color(255,0,0,255));
     setOrigin(getSize().x/2.0, getSize().y/2.0);
     setPosition(Vector2f(position));
-    updateState(Top_Idle);
+    updateState(Idle);
     play();
 }
 
 void Enemy::movement(Player player){
 
-    bool shouldUpdateAnimation = false;
-
-    bool sprint = false;
-
-    float topRotation = Calculator::angleBetweenPoints(getPosition(), Vector2f(player.getPosition().x, player.getPosition().y));
-    topRotation = Calculator::toDegrees(topRotation);
-
-    setRotation(topRotation);
-
-    TopState s = Top_Idle;
-
-    if (getPosition() == VECTOR_ZERO) {
-        setXspeed(0);
-        setYspeed(0);
-        s = Top_Idle;
-    }
-     else {
-        if (sprint) {
-            setXspeed(getPosition().x * runSpeed);
-            setYspeed(getPosition().y * runSpeed);
-            s = Top_Run;
-        } else {
-            setXspeed(player.getPosition().x - getPosition().x * walkSpeed);
-            setYspeed(player.getPosition().y - getPosition().y * walkSpeed);
-            s = Top_Walk;
-        }
-    }
-
-    updateState(s);
+//    bool shouldUpdateAnimation = false;
+//
+//    bool sprint = false;
+//
+//    float topRotation = Calculator::angleBetweenPoints(getPosition(), Vector2f(player.getPosition().x, player.getPosition().y));
+//    topRotation = Calculator::toDegrees(topRotation);
+//
+//    setRotation(topRotation);
+//
+//    TopState s = Top_Idle;
+//
+//    if (getPosition() == VECTOR_ZERO) {
+//        setXspeed(0);
+//        setYspeed(0);
+//        s = Top_Idle;
+//    }
+//     else {
+//        if (sprint) {
+//            setXspeed(getPosition().x * runSpeed);
+//            setYspeed(getPosition().y * runSpeed);
+//            s = Top_Run;
+//        } else {
+//            setXspeed(player.getPosition().x - getPosition().x * walkSpeed);
+//            setYspeed(player.getPosition().y - getPosition().y * walkSpeed);
+//            s = Top_Walk;
+//        }
+//    }
+//
+//    updateState(s);
 
 }
 
 
-void Enemy::updateState(TopState state) {
+void Enemy::updateState(State state) {
 
-    if (state != topState) {
+    if (state != state) {
         switch(state) {
-        case Top_Idle :
+        case Idle :
             setAnimRate(15);
             setAnimation("idle");
             break;
 
-        case Top_Walk :
+        case Walk :
             setAnimRate(30);
             setAnimation("move");
             break;
 
-        case Top_Run :
+        case Run :
             setAnimRate(55);
             setAnimation("move");
             break;
@@ -81,7 +81,7 @@ void Enemy::updateState(TopState state) {
         default: ;
         }
 
-        topState = state;
+        this->state = state;
         play();
     }
 }

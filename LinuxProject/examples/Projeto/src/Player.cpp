@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "GameplayState.h"
 
 #define VECTOR_ZERO Vector2i(0,0)
 
@@ -32,6 +33,9 @@ void Player::init() {
 
     updateState(Top_Idle);
     play();
+
+    physics = cgf::Physics::instance();
+    body = physics->newCircle(GameplayState::BodyID::PlayerID, getOrigin().x, getOrigin().y, 30, 50, 0.5, 1.0, false);
 }
 
 void Player::shoot() {
@@ -45,7 +49,6 @@ void Player::reload() {
 void Player::changeWeapon(int slot) {
 
 }
-
 
 void Player::updateMovement(sf::Vector2i lookingPoint, sf::Vector2i moveDirection, bool sprint) {
 

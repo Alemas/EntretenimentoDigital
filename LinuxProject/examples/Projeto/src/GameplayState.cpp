@@ -10,14 +10,11 @@ GameplayState GameplayState::m_GameplayState;
 void GameplayState::init() {
     player.init();
 
-    //set enemy position
-    enemy.init(Vector2i(1000,300));
-
     im = InputManager::instance();
 
     map = new tmx::MapLoader("data/maps");       // all maps/tiles will be read from data/maps
     // map->AddSearchPath("data/maps/tilesets"); // e.g.: adding more search paths for tilesets
-    map->Load("dungeon-tilesets2.tmx");
+    map->Load("dungeon-physics.tmx");
 
     im->addKeyInput("Left", Keyboard::A);
     im->addKeyInput("Right", Keyboard::D);
@@ -36,17 +33,17 @@ void GameplayState::init() {
 
 void GameplayState::cleanup() {
 
-    //cout << "GameplayState: cleanup" << endl;
+    cout << "GameplayState: cleanup" << endl;
 }
 
 void GameplayState::pause() {
 
-    //cout << "GameplayState: pause" << endl;
+    cout << "GameplayState: pause" << endl;
 }
 
 void GameplayState::resume() {
 
-    //cout << "GameplayState: resume" << endl;
+    cout << "GameplayState: resume" << endl;
 }
 
 void GameplayState::handleEvents(cgf::Game* game) {
@@ -84,25 +81,17 @@ void GameplayState::handleEvents(cgf::Game* game) {
     }
 
     player.updateMovement(Mouse::getPosition(*screen), Vector2i(dirx,diry), sprint);
-    enemy.movement(player);
 
-    //cout << "GameplayState: handleEvents" << endl;
+    cout << "GameplayState: handleEvents" << endl;
 }
 
 void GameplayState::update(cgf::Game* game) {
 
     screen = game->getScreen();
-    checkCollision(1, game, &player);
-    checkCollision(1, game, &enemy);
     player.update(game->getUpdateInterval(), true);
-    enemy.update(game->getUpdateInterval(),true);
 
-    if(player.bboxCollision(enemy)) {
-        //jogador morreu
-        player.setVisible(false);
-    }
     centerMapOnPlayer();
-    //cout << "GameplayState: update" << endl;
+    cout << "GameplayState: update" << endl;
 }
 
 void GameplayState::draw(cgf::Game* game) {
@@ -110,7 +99,6 @@ void GameplayState::draw(cgf::Game* game) {
 
     map->Draw(*screen);
     screen->draw(player);
-    screen->draw(enemy);
 
     //cout << "GameplayState: draw" << endl;
 }
