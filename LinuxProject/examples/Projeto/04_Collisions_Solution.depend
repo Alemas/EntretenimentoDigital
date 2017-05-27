@@ -1178,17 +1178,20 @@
 	"GameState.h"
 	"GameplayState.h"
 
-1494612642 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/include/GameplayState.h
+1495673018 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/include/GameplayState.h
 	<iostream>
 	<GameState.h>
 	<InputManager.h>
 	<Player.h>
+	<Enemy.h>
 	<tmx/MapLoader.h>
 
-1494647551 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/include/Player.h
+1495677385 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/include/Player.h
 	<Sprite.h>
 	<iostream>
 	"Calculator.h"
+	"Physics.h"
+	<SFML/Graphics.hpp>
 
 1494468450 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/CGF/include/Sprite.h
 	<vector>
@@ -1221,11 +1224,11 @@
 
 1494468450 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/CGF/include/pugixml/pugiconfig.hpp
 
-1494468450 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/include/Calculator.h
+1494806357 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/include/Calculator.h
 	<SFML/Graphics.hpp>
 	<cmath>
 
-1494468450 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/PlayState_Solution.cpp
+1494806357 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/PlayState_Solution.cpp
 	<iostream>
 	<cmath>
 	"Game.h"
@@ -1274,13 +1277,14 @@
 1494521442 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/MenuState.cpp
 	"MenuState.h"
 
-1494647459 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/Player.cpp
+1495679316 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/Player.cpp
 	"Player.h"
+	"GameplayState.h"
 
 1494468450 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/SplashState.cpp
 	"SplashState.h"
 
-1494612738 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/GameplayState.cpp
+1495679306 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/GameplayState.cpp
 	"GameplayState.h"
 
 1494697715 source:c:\users\bruno\desktop\entretenimento\entretenimentodigital\linuxproject\examples\projeto\main.cpp
@@ -2758,4 +2762,187 @@
 1495489729 source:/home/13104485/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/Player.cpp
 	"Player.h"
 	"GameplayState.h"
+
+1494468450 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/CGF/include/Physics.h
+	<Box2D/Box2D.h>
+	<memory>
+	<vector>
+	"Sprite.h"
+	"EEDebugDraw3.h"
+	<cmath>
+
+1494468450 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/Box2D-2.3.0/include/Box2D/Box2D.h
+	<Box2D/Common/b2Settings.h>
+	<Box2D/Common/b2Draw.h>
+	<Box2D/Common/b2Timer.h>
+	<Box2D/Collision/Shapes/b2CircleShape.h>
+	<Box2D/Collision/Shapes/b2EdgeShape.h>
+	<Box2D/Collision/Shapes/b2ChainShape.h>
+	<Box2D/Collision/Shapes/b2PolygonShape.h>
+	<Box2D/Collision/b2BroadPhase.h>
+	<Box2D/Collision/b2Distance.h>
+	<Box2D/Collision/b2DynamicTree.h>
+	<Box2D/Collision/b2TimeOfImpact.h>
+	<Box2D/Dynamics/b2Body.h>
+	<Box2D/Dynamics/b2Fixture.h>
+	<Box2D/Dynamics/b2WorldCallbacks.h>
+	<Box2D/Dynamics/b2TimeStep.h>
+	<Box2D/Dynamics/b2World.h>
+	<Box2D/Dynamics/Contacts/b2Contact.h>
+	<Box2D/Dynamics/Joints/b2DistanceJoint.h>
+	<Box2D/Dynamics/Joints/b2FrictionJoint.h>
+	<Box2D/Dynamics/Joints/b2GearJoint.h>
+	<Box2D/Dynamics/Joints/b2MotorJoint.h>
+	<Box2D/Dynamics/Joints/b2MouseJoint.h>
+	<Box2D/Dynamics/Joints/b2PrismaticJoint.h>
+	<Box2D/Dynamics/Joints/b2PulleyJoint.h>
+	<Box2D/Dynamics/Joints/b2RevoluteJoint.h>
+	<Box2D/Dynamics/Joints/b2RopeJoint.h>
+	<Box2D/Dynamics/Joints/b2WeldJoint.h>
+	<Box2D/Dynamics/Joints/b2WheelJoint.h>
+
+1494468450 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/Box2D-2.3.0/include/Box2D/Common/b2Settings.h
+	<stddef.h>
+	<assert.h>
+	<float.h>
+
+1494468450 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/Box2D-2.3.0/include/Box2D/Common/b2Draw.h
+	<Box2D/Common/b2Math.h>
+
+1494468450 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/Box2D-2.3.0/include/Box2D/Common/b2Math.h
+	<Box2D/Common/b2Settings.h>
+	<math.h>
+
+1494468450 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/Box2D-2.3.0/include/Box2D/Common/b2Timer.h
+	<Box2D/Common/b2Settings.h>
+
+1494468450 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/Box2D-2.3.0/include/Box2D/Collision/Shapes/b2CircleShape.h
+	<Box2D/Collision/Shapes/b2Shape.h>
+
+1494468450 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/Box2D-2.3.0/include/Box2D/Collision/Shapes/b2Shape.h
+	<Box2D/Common/b2BlockAllocator.h>
+	<Box2D/Common/b2Math.h>
+	<Box2D/Collision/b2Collision.h>
+
+1494468450 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/Box2D-2.3.0/include/Box2D/Common/b2BlockAllocator.h
+	<Box2D/Common/b2Settings.h>
+
+1494468450 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/Box2D-2.3.0/include/Box2D/Collision/b2Collision.h
+	<Box2D/Common/b2Math.h>
+	<limits.h>
+
+1494468450 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/Box2D-2.3.0/include/Box2D/Collision/Shapes/b2EdgeShape.h
+	<Box2D/Collision/Shapes/b2Shape.h>
+
+1494468450 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/Box2D-2.3.0/include/Box2D/Collision/Shapes/b2ChainShape.h
+	<Box2D/Collision/Shapes/b2Shape.h>
+
+1494468450 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/Box2D-2.3.0/include/Box2D/Collision/Shapes/b2PolygonShape.h
+	<Box2D/Collision/Shapes/b2Shape.h>
+
+1494468450 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/Box2D-2.3.0/include/Box2D/Collision/b2BroadPhase.h
+	<Box2D/Common/b2Settings.h>
+	<Box2D/Collision/b2Collision.h>
+	<Box2D/Collision/b2DynamicTree.h>
+	<algorithm>
+
+1494468450 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/Box2D-2.3.0/include/Box2D/Collision/b2DynamicTree.h
+	<Box2D/Collision/b2Collision.h>
+	<Box2D/Common/b2GrowableStack.h>
+
+1494468450 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/Box2D-2.3.0/include/Box2D/Common/b2GrowableStack.h
+	<Box2D/Common/b2Settings.h>
+	<memory.h>
+
+1494468450 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/Box2D-2.3.0/include/Box2D/Collision/b2Distance.h
+	<Box2D/Common/b2Math.h>
+
+1494468450 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/Box2D-2.3.0/include/Box2D/Collision/b2TimeOfImpact.h
+	<Box2D/Common/b2Math.h>
+	<Box2D/Collision/b2Distance.h>
+
+1494468450 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/Box2D-2.3.0/include/Box2D/Dynamics/b2Body.h
+	<Box2D/Common/b2Math.h>
+	<Box2D/Collision/Shapes/b2Shape.h>
+	<memory>
+
+1494468450 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/Box2D-2.3.0/include/Box2D/Dynamics/b2Fixture.h
+	<Box2D/Dynamics/b2Body.h>
+	<Box2D/Collision/b2Collision.h>
+	<Box2D/Collision/Shapes/b2Shape.h>
+
+1494468450 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/Box2D-2.3.0/include/Box2D/Dynamics/b2WorldCallbacks.h
+	<Box2D/Common/b2Settings.h>
+
+1494468450 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/Box2D-2.3.0/include/Box2D/Dynamics/b2TimeStep.h
+	<Box2D/Common/b2Math.h>
+
+1494468450 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/Box2D-2.3.0/include/Box2D/Dynamics/b2World.h
+	<Box2D/Common/b2Math.h>
+	<Box2D/Common/b2BlockAllocator.h>
+	<Box2D/Common/b2StackAllocator.h>
+	<Box2D/Dynamics/b2ContactManager.h>
+	<Box2D/Dynamics/b2WorldCallbacks.h>
+	<Box2D/Dynamics/b2TimeStep.h>
+
+1494468450 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/Box2D-2.3.0/include/Box2D/Common/b2StackAllocator.h
+	<Box2D/Common/b2Settings.h>
+
+1494468450 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/Box2D-2.3.0/include/Box2D/Dynamics/b2ContactManager.h
+	<Box2D/Collision/b2BroadPhase.h>
+
+1494468450 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/Box2D-2.3.0/include/Box2D/Dynamics/Contacts/b2Contact.h
+	<Box2D/Common/b2Math.h>
+	<Box2D/Collision/b2Collision.h>
+	<Box2D/Collision/Shapes/b2Shape.h>
+	<Box2D/Dynamics/b2Fixture.h>
+
+1494468450 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/Box2D-2.3.0/include/Box2D/Dynamics/Joints/b2DistanceJoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1494468450 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/Box2D-2.3.0/include/Box2D/Dynamics/Joints/b2Joint.h
+	<Box2D/Common/b2Math.h>
+
+1494468450 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/Box2D-2.3.0/include/Box2D/Dynamics/Joints/b2FrictionJoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1494468450 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/Box2D-2.3.0/include/Box2D/Dynamics/Joints/b2GearJoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1494468450 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/Box2D-2.3.0/include/Box2D/Dynamics/Joints/b2MotorJoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1494468450 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/Box2D-2.3.0/include/Box2D/Dynamics/Joints/b2MouseJoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1494468450 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/Box2D-2.3.0/include/Box2D/Dynamics/Joints/b2PrismaticJoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1494468450 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/Box2D-2.3.0/include/Box2D/Dynamics/Joints/b2PulleyJoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1494468450 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/Box2D-2.3.0/include/Box2D/Dynamics/Joints/b2RevoluteJoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1494468450 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/Box2D-2.3.0/include/Box2D/Dynamics/Joints/b2RopeJoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1494468450 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/Box2D-2.3.0/include/Box2D/Dynamics/Joints/b2WeldJoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1494468450 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/Box2D-2.3.0/include/Box2D/Dynamics/Joints/b2WheelJoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1494468450 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/CGF/include/EEDebugDraw3.h
+	<Box2D/Box2D.h>
+	<SFML/Graphics.hpp>
+
+1495637148 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/include/Enemy.h
+	<Sprite.h>
+	<iostream>
+	<Player.h>
+	"Calculator.h"
+
+1495637148 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/Enemy.cpp
+	"Enemy.h"
 

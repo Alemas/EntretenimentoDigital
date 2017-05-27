@@ -28,6 +28,11 @@ void GameplayState::init() {
 
     im->addMouseInput("LeftClick", Mouse::Left);
 
+    physics = cgf::Physics::instance();
+    physics->setConvFactor(30);
+    physics->setGravity(0);
+    firstTime = true;
+
     cout << "GameplayState: init" << endl;
 }
 
@@ -48,7 +53,6 @@ void GameplayState::resume() {
 
 void GameplayState::handleEvents(cgf::Game* game) {
 
-    screen = game->getScreen();
     Event event;
 
     while(screen->pollEvent(event)) {
@@ -87,18 +91,30 @@ void GameplayState::handleEvents(cgf::Game* game) {
 
 void GameplayState::update(cgf::Game* game) {
 
-    screen = game->getScreen();
-    player.update(game->getUpdateInterval(), true);
+    if (firstTime) {
+        screen = game->getScreen();
+
+        physics->setRenderTarget(*screen);
+        screen->setVerticalSyncEnabled(true);
+        firstTime = false;
+    }
+
+    physics->step();
+
+    player.update(game->getUpdateInterval());
 
     centerMapOnPlayer();
     cout << "GameplayState: update" << endl;
 }
 
 void GameplayState::draw(cgf::Game* game) {
-    screen = game->getScreen();
 
-    map->Draw(*screen);
-    screen->draw(player);
+    screen->clear(sf::Color::Black);
+
+    map->Draw(*screen, 0);
+    player.draw(screen);
+
+    physics->drawDebugData();
 
     //cout << "GameplayState: draw" << endl;
 }
@@ -130,6 +146,22 @@ void GameplayState::centerMapOnPlayer()
     view.setCenter(center);
     screen->setView(view);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 bool GameplayState::checkCollision(uint8_t layer, cgf::Game* game, cgf::Sprite* obj)

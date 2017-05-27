@@ -5,8 +5,9 @@
 #include <iostream>
 #include "Calculator.h"
 #include "Physics.h"
+#include <SFML/Graphics.hpp>
 
-class Player : public cgf::Sprite
+class Player
 {
     public:
         Player();
@@ -19,6 +20,9 @@ class Player : public cgf::Sprite
         void shoot();
         void reload();
         void changeWeapon(int slot);
+        void draw(sf::RenderWindow* screen);
+        void update(float deltaTime);
+        sf::Vector2f getPosition() { return topSprite.getPosition(); }
 
     protected:
 
@@ -31,9 +35,10 @@ class Player : public cgf::Sprite
     FeetState feetState;
     TopState topState = Reload;
 
-    int walkSpeed = 150;
-    int runSpeed = 220;
+    int walkSpeed = 2000;
+    int runSpeed = 4000;
 
+    cgf::Sprite topSprite;
     cgf::Sprite feetSprite;
 
     void updateState(TopState state);

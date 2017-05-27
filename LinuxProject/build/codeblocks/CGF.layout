@@ -2,14 +2,24 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Linux" />
-	<File name="../../lib/CGF/source/EEDebugDraw3.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="../../lib/CGF/source/Sprite.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="398" topLine="0" />
+			<Cursor1 position="2974" topLine="235" />
+		</Cursor>
+	</File>
+	<File name="../../lib/CGF/include/Physics.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1298" topLine="20" />
 		</Cursor>
 	</File>
 	<File name="../../lib/CGF/source/tmxloader/MapLoaderPrivate.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="28302" topLine="799" />
+		</Cursor>
+	</File>
+	<File name="../../lib/CGF/source/EEDebugDraw3.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="398" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="../../lib/CGF/source/Collision.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -22,29 +32,19 @@
 			<Cursor1 position="229" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="../../lib/CGF/include/Sprite.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="../../lib/CGF/include/Game.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../../lib/CGF/source/Physics.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5577" topLine="184" />
+		</Cursor>
+	</File>
+	<File name="../../lib/CGF/include/Sprite.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="1152" topLine="94" />
-		</Cursor>
-	</File>
-	<File name="../../lib/CGF/source/Sprite.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2974" topLine="187" />
-		</Cursor>
-	</File>
-	<File name="../../lib/CGF/source/Physics.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="681" topLine="11" />
-		</Cursor>
-	</File>
-	<File name="../../lib/CGF/include/Game.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="../../lib/CGF/include/Physics.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="0" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

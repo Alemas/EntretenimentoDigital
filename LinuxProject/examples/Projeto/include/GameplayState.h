@@ -40,6 +40,10 @@ class GameplayState : public cgf::GameState
     sf::RenderWindow* screen;
     cgf::InputManager* im;
     tmx::MapLoader* map;
+
+    cgf::Physics* physics;
+    bool firstTime;
+
     Player player;
     void centerMapOnPlayer();
     bool checkCollision(uint8_t layer, cgf::Game* game, cgf::Sprite* obj);
