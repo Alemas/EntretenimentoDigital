@@ -8,6 +8,7 @@
 #include <Player.h>
 #include <Enemy.h>
 #include <tmx/MapLoader.h>
+#include <SFML/Graphics.hpp>
 
 class GameplayState : public cgf::GameState
 {
@@ -48,6 +49,7 @@ class GameplayState : public cgf::GameState
     void centerMapOnPlayer();
     bool checkCollision(uint8_t layer, cgf::Game* game, cgf::Sprite* obj);
     sf::Uint16 getCellFromMap(uint8_t layernum, float x, float y);
+
 };
 
 #endif // GAMEPLAYSTATE_H

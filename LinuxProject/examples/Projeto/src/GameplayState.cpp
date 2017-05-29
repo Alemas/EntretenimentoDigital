@@ -6,6 +6,7 @@ using namespace cgf;
 using namespace tmx;
 
 GameplayState GameplayState::m_GameplayState;
+Vector2i mousePos = Vector2i(0,0);
 
 void GameplayState::init() {
     player.init();
@@ -84,7 +85,13 @@ void GameplayState::handleEvents(cgf::Game* game) {
         sprint = true;
     }
 
-    player.updateMovement(Mouse::getPosition(*screen), Vector2i(dirx,diry), sprint);
+    sf::View view = screen->getView();
+
+    mousePos.x = Mouse::getPosition(*screen).x + ((view.getSize().x/2) - view.getCenter().x);
+    mousePos.y = Mouse::getPosition(*screen).y + ((view.getSize().y/2) - view.getCenter().y);
+    player.updateMovement(mousePos, Vector2i(dirx, diry), sprint);
+
+//    player.updateMovement(Mouse::getPosition(*screen) + player.getPosition(), Vector2i(dirx,diry), sprint);
 
     cout << "GameplayState: handleEvents" << endl;
 }

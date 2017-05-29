@@ -36,7 +36,7 @@ class Player
     TopState topState = Reload;
 
     int walkSpeed = 2000;
-    int runSpeed = 4000;
+    int runSpeed = 3500;
 
     cgf::Sprite topSprite;
     cgf::Sprite feetSprite;

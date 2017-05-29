@@ -30,15 +30,12 @@ void Player::init() {
 
 //    setScale(0.5, 0.5);
     topSprite.setOrigin(topSprite.getSize().x/2.0, topSprite.getSize().y/2.0);
-    topSprite.setPosition(500/30, 500/30);
 
     updateState(Top_Idle);
 
     physics = cgf::Physics::instance();
 
-//    body = physics->newCircle(GameplayState::BodyID::PlayerID, getOrigin().x, getOrigin().y, 30, 50, 0.5, 1.0, false);
-//    body = physics->newCircle(GameplayState::BodyID::PlayerID, &topSprite, 10, 0.5, 0, false);
-    body = physics->newCircle(GameplayState::BodyID::PlayerID, 0, 0, 10, 10, 0.5, 0, false);
+    body = physics->newCircle(GameplayState::BodyID::PlayerID, 0, 0, 12.5, 400, 0.5, 1.0, false);
     physics->setImage(body, &topSprite);
     body->SetFixedRotation(false);
     body->SetLinearDamping(10);
