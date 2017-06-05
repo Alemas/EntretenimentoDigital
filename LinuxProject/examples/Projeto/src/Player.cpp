@@ -21,40 +21,36 @@ void Player::init() {
 
     clock = Clock();
 
+    Time zero = Time().Zero;
+    Time coolDown = seconds(0.5);
+
     weapons[0] = Weapon{Knife,
                         true, true, false,
                         0, 0, 0, 0, 10,
-                        0, 0, 0,
-                        0, 0, 0.1};
+                        zero, zero, zero,
+                        zero, zero, coolDown};
 
     weapons[1] = Weapon{Pistol,
                         true, true, true,
                         0, 0, 0, 0, 10,
-                        0, 0, 0,
-                        0, 0, 0.1};
+                        zero, zero, zero,
+                        coolDown, coolDown, coolDown};
 
     weapons[2] = Weapon{Shotgun,
                         false, true, true,
                         0, 0, 0, 0, 10,
-                        0, 0, 0,
-                        0, 0, 0.1};
+                        zero, zero, zero,
+                        coolDown, coolDown, coolDown};
 
     weapons[3] = Weapon{Rifle,
                         false, true, true,
                         0, 0, 0, 0, 10,
-                        0, 0, 0,
-                        0, 0, 0.1};
+                        zero, zero, zero,
+                        coolDown, coolDown, coolDown};
 
     topSprite.load("data/img/survivor/survivor1.png", 179, 179, 0, 0, 0, 0, 5, 8);
     topSprite.loadAnimation("data/img/survivor/survivor1_anim.xml");
 
-//    load("data/img/survivor/survivor_handgun_move.png", 258, 220, 0, 0, 0, 0, 7, 3, 20);
-//    loadAnimation("data/img/survivor/survivor_handgun_move_anim.xml");
-//
-//    load("data/img/survivor/survivor_handgun_move.png", 258, 220, 0, 0, 0, 0, 7, 3, 20);
-//    loadAnimation("data/img/survivor/survivor_handgun_idle_anim.xml");
-
-//    setScale(0.5, 0.5);
     topSprite.setOrigin(topSprite.getSize().x/2.0, topSprite.getSize().y/2.0);
 
     updateState(Top_Idle);
@@ -75,6 +71,11 @@ void Player::meleeAttack() {
 }
 
 void Player::shoot() {
+//
+//    Time
+//
+//    if weapons[currentWeapon].lastShootTime
+
     //usa a rotation do proprio sprite
 }
 
@@ -85,8 +86,7 @@ void Player::reload() {
 void Player::changeWeapon(int slot) {
     if (slot >= 0 && slot <= 3) {
         if (weapons[slot].unlocked) {
-            if (currentWeapon != slot)
-                currentWeapon = slot;
+            currentWeapon = slot;
         }
     }
 }
@@ -135,6 +135,21 @@ void Player::updateMovement(sf::Vector2i lookingPoint, sf::Vector2i moveDirectio
 }
 
 void Player::updateState(TopState state) {
+
+    switch(currentWeapon) {
+    case 0:
+        topSprite.setColor(Color::Blue);
+        break;
+    case 1:
+        topSprite.setColor(Color::Yellow);
+        break;
+    case 2:
+        topSprite.setColor(Color::Red);
+        break;
+    case 3:
+        topSprite.setColor(Color::Green);
+        break;
+    }
 
     if (state != topState) {
         switch(state) {

@@ -39,12 +39,12 @@ class Player
         bool melee;
         bool shoot;
         int maxAmmo, currentAmmo, magazineCapacity, shootDamage, meleeDamage;
-        float lastShootTime, lastReloadTime, lastMeleeTime;
-        float shootCooldown, reloadCooldown, meleeCooldown;
+        sf::Time lastShootTime, lastReloadTime, lastMeleeTime;
+        sf::Time shootCooldown, reloadCooldown, meleeCooldown;
     };
 
     Weapon weapons[4];
-    int currentWeapon = 0;
+    int currentWeapon = 1;
 
     sf::Clock clock;
 

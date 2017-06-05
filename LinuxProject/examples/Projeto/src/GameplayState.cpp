@@ -21,6 +21,7 @@ void GameplayState::init() {
     im->addKeyInput("Right", Keyboard::D);
     im->addKeyInput("Up", Keyboard::W);
     im->addKeyInput("Down", Keyboard::S);
+    im->addKeyInput("R", Keyboard::R);
     im->addKeyInput("Shift", Keyboard::LShift);
     im->addKeyInput("Num1", Keyboard::Num1);
     im->addKeyInput("Num2", Keyboard::Num2);
@@ -83,6 +84,21 @@ void GameplayState::handleEvents(cgf::Game* game) {
     }
     if(im->testEvent("Shift")) {
         sprint = true;
+    }
+    if(im->testEvent("R")) {
+        player.reload();
+    }
+    if(im->testEvent("Num1")) {
+        player.changeWeapon(0);
+    }
+    if(im->testEvent("Num2")) {
+        player.changeWeapon(1);
+    }
+    if(im->testEvent("Num3")) {
+        player.changeWeapon(2);
+    }
+    if(im->testEvent("Num4")) {
+        player.changeWeapon(3);
     }
 
     sf::View view = screen->getView();
