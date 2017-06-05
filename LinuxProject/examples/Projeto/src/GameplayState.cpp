@@ -87,11 +87,10 @@ void GameplayState::handleEvents(cgf::Game* game) {
 
     sf::View view = screen->getView();
 
-    mousePos.x = Mouse::getPosition(*screen).x + ((view.getSize().x/2) - view.getCenter().x);
-    mousePos.y = Mouse::getPosition(*screen).y + ((view.getSize().y/2) - view.getCenter().y);
-    player.updateMovement(mousePos, Vector2i(dirx, diry), sprint);
+    mousePos.x = Mouse::getPosition(*screen).x - ((view.getSize().x/2) - view.getCenter().x);
+    mousePos.y = Mouse::getPosition(*screen).y - ((view.getSize().y/2) - view.getCenter().y);
 
-//    player.updateMovement(Mouse::getPosition(*screen) + player.getPosition(), Vector2i(dirx,diry), sprint);
+    player.updateMovement(mousePos, Vector2i(dirx, diry), sprint);
 
     cout << "GameplayState: handleEvents" << endl;
 }

@@ -17,6 +17,7 @@ class Player
         void init();
 
         void updateMovement(sf::Vector2i lookingPoint, sf::Vector2i moveDirection, bool sprint);
+        void meleeAttack();
         void shoot();
         void reload();
         void changeWeapon(int slot);
@@ -30,6 +31,23 @@ class Player
     enum FeetState {Feet_Idle, Walk, Run, Strafe_Left, Strafe_Right};
     enum TopState {Top_Idle, Top_Walk, Top_Run, Melee, Shoot, Reload};
 
+    enum WeaponType {Knife, Pistol, Shotgun, Rifle};
+
+    struct Weapon {
+        WeaponType type;
+        bool unlocked;
+        bool melee;
+        bool shoot;
+        int maxAmmo, currentAmmo, magazineCapacity, shootDamage, meleeDamage;
+        float lastShootTime, lastReloadTime, lastMeleeTime;
+        float shootCooldown, reloadCooldown, meleeCooldown;
+    };
+
+    Weapon weapons[4];
+    int currentWeapon = 0;
+
+    sf::Clock clock;
+
     cgf::Physics* physics;
 
     FeetState feetState;
@@ -40,6 +58,9 @@ class Player
 
     cgf::Sprite topSprite;
     cgf::Sprite feetSprite;
+
+    sf::Vertex lookingLine[2];
+
 
     void updateState(TopState state);
 };
