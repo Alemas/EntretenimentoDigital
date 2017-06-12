@@ -22,6 +22,7 @@ void Enemy::init(sf::Vector2i position){
     setPosition(Vector2f(position));
     updateState(Idle);
     play();
+
 }
 
 void Enemy::movement(Player player){
@@ -77,6 +78,8 @@ void Enemy::updateState(State state) {
             setAnimRate(55);
             setAnimation("move");
             break;
+
+
 
         default: ;
         }
