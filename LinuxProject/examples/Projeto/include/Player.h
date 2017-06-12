@@ -24,6 +24,7 @@ class Player
         void draw(sf::RenderWindow* screen);
         void update(float deltaTime);
         sf::Vector2f getPosition() { return topSprite.getPosition(); }
+        void setPosition(b2Vec2 pos);
 
     protected:
 
@@ -44,8 +45,8 @@ class Player
     };
 
     Weapon weapons[4];
-    int currentWeapon = 1;
-    int lastWeapon = 0;
+    int currentWeapon = 0;
+    int lastWeapon = -1;
 
     sf::Clock clock;
 
@@ -61,7 +62,6 @@ class Player
     cgf::Sprite feetSprite;
 
     sf::Vertex lookingLine[2];
-
 
     void updateState(TopState state);
 };

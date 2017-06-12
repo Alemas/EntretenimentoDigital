@@ -58,9 +58,17 @@ void Player::init() {
     body->SetLinearDamping(10);
 }
 
+void Player::setPosition(b2Vec2 pos) {
+    physics->setPosition(body, pos);
+}
+
+
 void Player::meleeAttack() {
 //    if (weapons[currentWeapon].melee) {
-//        if (weapons[currentWeapon].lastMeleeTime) {
+//        Weapon w = weapons[currentWeapon];
+//        Time elapsedTime = clock.getElapsedTime() - w.lastMeleeTime;
+//        if (elapsedTime >= w->meleeCooldown) {
+//
 //        }
 //    }
 }
@@ -137,8 +145,8 @@ void Player::updateState(TopState state) {
 
         switch(currentWeapon) {
         case 0:
-            topSprite.load("data/img/survivor/survivor_knife.png", 179, 179, 0, 0, 0, 0, 5, 8);
-            topSprite.loadAnimation("data/img/survivor/survivor_knife_anim.xml");
+            topSprite.load("data/img/survivor/survivor_knife_complete.png", 179, 179, 0, 0, 0, 0, 11, 5);
+            topSprite.loadAnimation("data/img/survivor/survivor_knife_complete_anim.xml");
     //        topSprite.setColor(Color::Blue);
             break;
         case 1:

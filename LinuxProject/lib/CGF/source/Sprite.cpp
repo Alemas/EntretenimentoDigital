@@ -86,6 +86,8 @@ bool Sprite::loadXML(const char *xmlFile)
     if ( !result )
 		return false;
 
+    frames.clear();
+
     // Read texture atlas file name
 
     pugi::xml_node atlas = doc.child("TextureAtlas");
@@ -214,6 +216,8 @@ bool Sprite::loadMultiImage(const char *filename,
 
     tot = 0;
     y = yIni;
+
+    frames.clear();
 
     for(int r=0; r<rows && tot<total; rows++)
     {

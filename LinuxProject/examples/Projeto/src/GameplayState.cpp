@@ -13,9 +13,24 @@ void GameplayState::init() {
 
     im = InputManager::instance();
 
+    physics = cgf::Physics::instance();
+    physics->setConvFactor(30);
+    physics->setGravity(0);
+    firstTime = true;
+
     map = new tmx::MapLoader("data/maps");       // all maps/tiles will be read from data/maps
     // map->AddSearchPath("data/maps/tilesets"); // e.g.: adding more search paths for tilesets
     map->Load("theLastSurvivorMap.tmx");
+
+    player.setPosition(b2Vec2(20, 20));
+
+    auto& layers = map->GetLayers();
+    tmx::MapLayer& layer = layers[1];
+    for(auto& object: layer.objects) //.begin(); object != layer.objects.end(); ++object)
+    {
+        sf::FloatRect rect = object.GetAABB();
+        physics->newRect(WallID, rect.left, rect.top, rect.width, rect.height, 1, 1.0, 0, true);
+    }
 
     im->addKeyInput("Left", Keyboard::A);
     im->addKeyInput("Right", Keyboard::D);
@@ -29,11 +44,6 @@ void GameplayState::init() {
     im->addKeyInput("Num4", Keyboard::Num4);
 
     im->addMouseInput("LeftClick", Mouse::Left);
-
-    physics = cgf::Physics::instance();
-    physics->setConvFactor(30);
-    physics->setGravity(0);
-    firstTime = true;
 
     cout << "GameplayState: init" << endl;
 }
