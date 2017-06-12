@@ -29,7 +29,7 @@ class Player
 
     private:
     enum FeetState {Feet_Idle, Walk, Run, Strafe_Left, Strafe_Right};
-    enum TopState {Top_Idle, Top_Walk, Top_Run, Melee, Shoot, Reload};
+    enum TopState {Top_Idle, Top_Walk, Top_Run, Melee, Shoot, Reload, Invalid};
 
     enum WeaponType {Knife, Pistol, Shotgun, Rifle};
 
@@ -45,6 +45,7 @@ class Player
 
     Weapon weapons[4];
     int currentWeapon = 1;
+    int lastWeapon = 0;
 
     sf::Clock clock;
 

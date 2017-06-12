@@ -48,11 +48,6 @@ void Player::init() {
                         zero, zero, zero,
                         coolDown, coolDown, coolDown};
 
-    topSprite.load("data/img/survivor/survivor1.png", 179, 179, 0, 0, 0, 0, 5, 8);
-    topSprite.loadAnimation("data/img/survivor/survivor1_anim.xml");
-
-    topSprite.setOrigin(topSprite.getSize().x/2.0, topSprite.getSize().y/2.0);
-
     updateState(Top_Idle);
 
     physics = cgf::Physics::instance();
@@ -71,9 +66,9 @@ void Player::meleeAttack() {
 }
 
 void Player::shoot() {
-//
-//    Time
-//
+
+
+
 //    if weapons[currentWeapon].lastShootTime
 
     //usa a rotation do proprio sprite
@@ -136,19 +131,32 @@ void Player::updateMovement(sf::Vector2i lookingPoint, sf::Vector2i moveDirectio
 
 void Player::updateState(TopState state) {
 
-    switch(currentWeapon) {
-    case 0:
-        topSprite.setColor(Color::Blue);
-        break;
-    case 1:
-        topSprite.setColor(Color::Yellow);
-        break;
-    case 2:
-        topSprite.setColor(Color::Red);
-        break;
-    case 3:
-        topSprite.setColor(Color::Green);
-        break;
+    if (lastWeapon != currentWeapon) {
+
+        lastWeapon = currentWeapon;
+
+        switch(currentWeapon) {
+        case 0:
+            topSprite.load("data/img/survivor/survivor_knife.png", 179, 179, 0, 0, 0, 0, 5, 8);
+            topSprite.loadAnimation("data/img/survivor/survivor_knife_anim.xml");
+    //        topSprite.setColor(Color::Blue);
+            break;
+        case 1:
+            topSprite.load("data/img/survivor/survivor_handgun.png", 179, 179, 0, 0, 0, 0, 5, 8);
+            topSprite.loadAnimation("data/img/survivor/survivor_handgun_anim.xml");
+    //        topSprite.setColor(Color::Yellow);
+            break;
+        case 2:
+            topSprite.setColor(Color::Red);
+            break;
+        case 3:
+            topSprite.setColor(Color::Green);
+            break;
+        }
+
+        topSprite.setOrigin(topSprite.getSize().x/2.0, topSprite.getSize().y/2.0);
+        //Necessário para atualizar a animação atual
+        topState = Invalid;
     }
 
     if (state != topState) {

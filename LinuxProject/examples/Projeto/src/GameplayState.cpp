@@ -15,7 +15,7 @@ void GameplayState::init() {
 
     map = new tmx::MapLoader("data/maps");       // all maps/tiles will be read from data/maps
     // map->AddSearchPath("data/maps/tilesets"); // e.g.: adding more search paths for tilesets
-    map->Load("dungeon-physics.tmx");
+    map->Load("theLastSurvivorMap.tmx");
 
     im->addKeyInput("Left", Keyboard::A);
     im->addKeyInput("Right", Keyboard::D);
@@ -136,7 +136,7 @@ void GameplayState::draw(cgf::Game* game) {
     map->Draw(*screen, 0);
     player.draw(screen);
 
-    physics->drawDebugData();
+//    physics->drawDebugData();
 
     //cout << "GameplayState: draw" << endl;
 }
