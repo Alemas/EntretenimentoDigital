@@ -1187,7 +1187,7 @@
 	<tmx/MapLoader.h>
 	<SFML/Graphics.hpp>
 
-1496693326 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/include/Player.h
+1497289315 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/include/Player.h
 	<Sprite.h>
 	<iostream>
 	"Calculator.h"
