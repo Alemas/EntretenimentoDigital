@@ -39,14 +39,17 @@ class Player
         bool unlocked;
         bool melee;
         bool shoot;
-        int maxAmmo, currentAmmo, magazineCapacity, shootDamage, meleeDamage;
+        int maxAmmo, currentAmmo, magazineCapacity, currentMagazine, shootDamage, meleeDamage;
         sf::Time lastShootTime, lastReloadTime, lastMeleeTime;
-        sf::Time shootCooldown, reloadCooldown, meleeCooldown;
+        sf::Time shootCooldown, reloadTime, meleeCooldown;
     };
 
     Weapon weapons[4];
     int currentWeapon = 0;
     int lastWeapon = -1;
+
+    bool reloading = false;
+    sf::Time lastReloadTime;
 
     sf::Clock clock;
 

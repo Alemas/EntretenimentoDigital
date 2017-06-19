@@ -26,25 +26,25 @@ void Player::init() {
 
     weapons[0] = Weapon{Knife,
                         true, true, false,
-                        0, 0, 0, 0, 10,
+                        0, 0, 0, 0, 0, 10,
                         zero, zero, zero,
                         zero, zero, coolDown};
 
     weapons[1] = Weapon{Pistol,
                         true, true, true,
-                        0, 0, 0, 0, 10,
+                        0, 0, 0, 0, 0, 10,
                         zero, zero, zero,
                         coolDown, coolDown, coolDown};
 
     weapons[2] = Weapon{Shotgun,
                         false, true, true,
-                        0, 0, 0, 0, 10,
+                        0, 0, 0, 0, 0, 10,
                         zero, zero, zero,
                         coolDown, coolDown, coolDown};
 
     weapons[3] = Weapon{Rifle,
                         false, true, true,
-                        0, 0, 0, 0, 10,
+                        0, 0, 0, 0, 0, 10,
                         zero, zero, zero,
                         coolDown, coolDown, coolDown};
 
@@ -56,6 +56,8 @@ void Player::init() {
     physics->setImage(body, &topSprite);
     body->SetFixedRotation(false);
     body->SetLinearDamping(10);
+
+    lastReloadTime = zero;
 }
 
 void Player::setPosition(b2Vec2 pos) {
@@ -75,20 +77,38 @@ void Player::meleeAttack() {
 
 void Player::shoot() {
 
+    Weapon w = weapons[currentWeapon];
 
+    if (!w.shoot || w.currentMagazine == 0) {
+        return;
+    }
 
-//    if weapons[currentWeapon].lastShootTime
+    reloading = false;
 
-    //usa a rotation do proprio sprite
+    Time elapsedTime = clock.getElapsedTime() - w.lastShootTime;
+
+    if (elapsedTime >= w.shootCooldown) {
+        //atira
+        w.lastShootTime = clock.getElapsedTime();
+        w.currentMagazine -= 1;
+    }
 }
 
 void Player::reload() {
-    //timer que impede de atirar, tbm torna reloading true
+    Weapon w = weapons[currentWeapon];
+    if (!w.shoot || reloading ||  w.currentAmmo == 0 || w.currentMagazine == w.magazineCapacity) {
+        return;
+    }
+    reloading = true;
+    lastReloadTime = clock.getElapsedTime();
 }
 
 void Player::changeWeapon(int slot) {
     if (slot >= 0 && slot <= 3) {
         if (weapons[slot].unlocked) {
+            if (currentWeapon != slot) {
+                reloading = false;
+            }
             currentWeapon = slot;
         }
     }
@@ -101,6 +121,25 @@ void Player::draw(RenderWindow* screen) {
 
 void Player::update(float updateTimeInterval) {
     topSprite.update(updateTimeInterval, false);
+
+    if (reloading) {
+        Time elapsedTime = clock.getElapsedTime() - lastReloadTime;
+        Weapon w = weapons[currentWeapon];
+
+        if (elapsedTime >= w.reloadTime) {
+            reloading = false;
+
+            int emptySpace = w.magazineCapacity - w.currentMagazine;
+
+            if (w.currentAmmo >= emptySpace) {
+                w.currentMagazine = w.magazineCapacity;
+                w.currentAmmo = w.currentAmmo - emptySpace;
+            } else {
+                w.currentMagazine = w.currentMagazine + w.currentAmmo;
+                w.currentAmmo = 0;
+            }
+        }
+    }
 }
 
 void Player::updateMovement(sf::Vector2i lookingPoint, sf::Vector2i moveDirection, bool sprint) {

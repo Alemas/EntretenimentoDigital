@@ -28,7 +28,7 @@ class GameplayState : public cgf::GameState
         return &m_GameplayState;
     }
 
-    enum BodyID { PlayerID, EnemyID, WallID };
+    enum BodyID { PlayerID, EnemyID, WallID, BulletID };
 
     protected:
 
