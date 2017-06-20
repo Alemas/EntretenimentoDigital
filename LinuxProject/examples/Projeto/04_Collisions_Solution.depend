@@ -1178,18 +1178,20 @@
 	"GameState.h"
 	"GameplayState.h"
 
-1497905573 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/include/GameplayState.h
+1497928528 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/include/GameplayState.h
 	<iostream>
 	<GameState.h>
 	<InputManager.h>
 	<Player.h>
 	<Enemy.h>
+	<Bullet.h>
 	<tmx/MapLoader.h>
 	<SFML/Graphics.hpp>
 
-1497907279 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/include/Player.h
+1497929377 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/include/Player.h
 	<Sprite.h>
 	<iostream>
+	<Bullet.h>
 	"Calculator.h"
 	"Physics.h"
 	<SFML/Graphics.hpp>
@@ -1278,14 +1280,14 @@
 1497904934 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/MenuState.cpp
 	"MenuState.h"
 
-1497904934 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/Player.cpp
+1497972689 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/Player.cpp
 	"Player.h"
 	"GameplayState.h"
 
-1497904934 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/SplashState.cpp
+1497909201 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/SplashState.cpp
 	"SplashState.h"
 
-1497904934 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/GameplayState.cpp
+1497971892 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/GameplayState.cpp
 	"GameplayState.h"
 
 1494697715 source:c:\users\bruno\desktop\entretenimento\entretenimentodigital\linuxproject\examples\projeto\main.cpp
@@ -2948,4 +2950,15 @@
 
 1497904934 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/Enemy.cpp
 	"Enemy.h"
+
+1497971631 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/include/Bullet.h
+	<Sprite.h>
+	<iostream>
+	"Calculator.h"
+	"Physics.h"
+	<SFML/Graphics.hpp>
+
+1497972125 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/Bullet.cpp
+	"Bullet.h"
+	"GameplayState.h"
 

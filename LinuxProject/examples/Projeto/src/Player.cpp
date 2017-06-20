@@ -22,7 +22,7 @@ void Player::init() {
     clock = Clock();
 
     Time zero = Time().Zero;
-    Time coolDown = seconds(0.5);
+    Time coolDown = seconds(2.0);
 
     weapons[0] = Weapon{Knife,
                         true, true, false,
@@ -32,7 +32,7 @@ void Player::init() {
 
     weapons[1] = Weapon{Pistol,
                         true, true, true,
-                        0, 0, 0, 0, 0, 10,
+                        100, 80, 20, 20, 0, 10,
                         zero, zero, zero,
                         coolDown, coolDown, coolDown};
 
@@ -64,7 +64,6 @@ void Player::setPosition(b2Vec2 pos) {
     physics->setPosition(body, pos);
 }
 
-
 void Player::meleeAttack() {
 //    if (weapons[currentWeapon].melee) {
 //        Weapon w = weapons[currentWeapon];
@@ -75,12 +74,12 @@ void Player::meleeAttack() {
 //    }
 }
 
-void Player::shoot() {
+Bullet* Player::shoot() {
 
     Weapon w = weapons[currentWeapon];
 
     if (!w.shoot || w.currentMagazine == 0) {
-        return;
+        return nullptr;
     }
 
     reloading = false;
@@ -88,10 +87,14 @@ void Player::shoot() {
     Time elapsedTime = clock.getElapsedTime() - w.lastShootTime;
 
     if (elapsedTime >= w.shootCooldown) {
-        //atira
+
         w.lastShootTime = clock.getElapsedTime();
         w.currentMagazine -= 1;
+
+        return new Bullet(w.shootDamage, Vector2f(topSprite.getPosition().x/30, topSprite.getPosition().y/30));
     }
+
+    return nullptr;
 }
 
 void Player::reload() {
@@ -116,7 +119,7 @@ void Player::changeWeapon(int slot) {
 
 void Player::draw(RenderWindow* screen) {
     screen->draw(topSprite);
-    screen->draw(lookingLine, 2, Lines);
+    //screen->draw(lookingLine, 2, Lines);
 }
 
 void Player::update(float updateTimeInterval) {
@@ -129,15 +132,14 @@ void Player::update(float updateTimeInterval) {
         if (elapsedTime >= w.reloadTime) {
             reloading = false;
 
-            int emptySpace = w.magazineCapacity - w.currentMagazine;
-
-            if (w.currentAmmo >= emptySpace) {
-                w.currentMagazine = w.magazineCapacity;
-                w.currentAmmo = w.currentAmmo - emptySpace;
-            } else {
-                w.currentMagazine = w.currentMagazine + w.currentAmmo;
+            if (w.currentAmmo > w.magazineCapacity) {
+                w.currentMagazine = w.currentAmmo;
                 w.currentAmmo = 0;
+            } else {
+                w.currentMagazine = w.magazineCapacity;
+                w.currentAmmo -= w.magazineCapacity;
             }
+
         }
     }
 }

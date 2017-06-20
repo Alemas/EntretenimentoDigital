@@ -7,6 +7,7 @@
 #include <InputManager.h>
 #include <Player.h>
 #include <Enemy.h>
+#include <Bullet.h>
 #include <tmx/MapLoader.h>
 #include <SFML/Graphics.hpp>
 
@@ -28,7 +29,7 @@ class GameplayState : public cgf::GameState
         return &m_GameplayState;
     }
 
-    enum BodyID { PlayerID, EnemyID, WallID, BulletID };
+    enum BodyID { PlayerID, EnemyID, WallID, BulletID, ItemID };
 
     protected:
 

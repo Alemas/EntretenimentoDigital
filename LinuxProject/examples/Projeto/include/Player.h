@@ -3,6 +3,7 @@
 
 #include <Sprite.h>
 #include <iostream>
+#include <Bullet.h>
 #include "Calculator.h"
 #include "Physics.h"
 #include <SFML/Graphics.hpp>
@@ -18,7 +19,7 @@ class Player
 
         void updateMovement(sf::Vector2i lookingPoint, sf::Vector2i moveDirection, bool sprint);
         void meleeAttack();
-        void shoot();
+        Bullet* shoot();
         void reload();
         void changeWeapon(int slot);
         void draw(sf::RenderWindow* screen);

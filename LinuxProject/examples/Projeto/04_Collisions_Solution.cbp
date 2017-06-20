@@ -114,6 +114,7 @@
 		</Linker>
 		<Unit filename="PlayState_Solution.cpp" />
 		<Unit filename="PlayState_Solution.h" />
+		<Unit filename="include/Bullet.h" />
 		<Unit filename="include/Calculator.h" />
 		<Unit filename="include/Enemy.h" />
 		<Unit filename="include/GameplayState.h" />
@@ -121,6 +122,7 @@
 		<Unit filename="include/Player.h" />
 		<Unit filename="include/SplashState.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Bullet.cpp" />
 		<Unit filename="src/Calculator.cpp" />
 		<Unit filename="src/Enemy.cpp" />
 		<Unit filename="src/GameplayState.cpp" />

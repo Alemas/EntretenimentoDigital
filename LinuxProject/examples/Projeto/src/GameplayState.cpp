@@ -1,5 +1,6 @@
 #include "GameplayState.h"
 
+
 using namespace std;
 using namespace sf;
 using namespace cgf;
@@ -7,6 +8,7 @@ using namespace tmx;
 
 GameplayState GameplayState::m_GameplayState;
 Vector2i mousePos = Vector2i(0,0);
+vector<Bullet> bullets;
 
 void GameplayState::init() {
     player.init();
@@ -110,6 +112,13 @@ void GameplayState::handleEvents(cgf::Game* game) {
     if(im->testEvent("Num4")) {
         player.changeWeapon(3);
     }
+    if(im->testEvent("LeftClick")) {
+        Bullet* bullet = player.shoot();
+
+        if (bullet != nullptr)
+            bullets.push_back(*bullet);
+
+    }
 
     sf::View view = screen->getView();
 
@@ -146,9 +155,13 @@ void GameplayState::draw(cgf::Game* game) {
     map->Draw(*screen, 0);
     player.draw(screen);
 
-//    physics->drawDebugData();
+    for(auto& bullet: bullets) {
+        screen->draw(bullet.sprite);
+    }
 
-    //cout << "GameplayState: draw" << endl;
+    physics->drawDebugData();
+
+    cout << "GameplayState: draw" << endl;
 }
 
 void GameplayState::centerMapOnPlayer()

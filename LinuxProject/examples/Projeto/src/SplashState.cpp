@@ -15,7 +15,7 @@ void SplashState::init() {
     title.setFont(font);
     info.setFont(font);
 
-    title.setString("Super Game");
+    title.setString("The Last Survivor");
     info.setString("Press ENTER to continue");
 
     title.setCharacterSize(150);
