@@ -12,6 +12,7 @@ vector<Bullet> bullets;
 
 void GameplayState::init() {
     player.init();
+    enemy.init();
 
     im = InputManager::instance();
 
@@ -25,6 +26,7 @@ void GameplayState::init() {
     map->Load("theLastSurvivorMap.tmx");
 
     player.setPosition(b2Vec2(20, 20));
+    enemy.setPosition(b2Vec2(30,30));
 
     auto& layers = map->GetLayers();
     tmx::MapLayer& layer = layers[1];

@@ -46,11 +46,11 @@ void PlayState::init()
     //player.setScale(1,1);
     player.play();
 
-    enemy.load("data/img/Char14s.png");
-    enemy.setPosition(40,250);
-    enemy.setXspeed(50);
-    enemy.setScale(2,2);
-//    edirx = 1; // right
+    enemy.load("data/img/warrior.png",64,64,0,0,0,0,13,21,273);
+    enemy.setPosition(40,100);
+    //enemy.setXspeed(50);
+    enemy.setScale(1,1);
+    //edirx = 1; // right
 
     dirx = 0; // sprite dir: right (1), left (-1)
     diry = 0; // down (1), up (-1)
@@ -159,10 +159,10 @@ void PlayState::update(cgf::Game* game)
     checkCollision(2, game, &player);
     if(checkCollision(2, game, &enemy))
         enemy.setXspeed(-enemy.getXspeed());
-    //enemy.update(game->getUpdateInterval());
+    enemy.update(game->getUpdateInterval());
     player.update(game->getUpdateInterval());
     if(player.bboxCollision(enemy)) {
-        enemy.setVisible(false);
+        enemy.setVisible(true);
     }
     centerMapOnPlayer();
 }

@@ -1,90 +1,90 @@
 #include "Enemy.h"
+#include "GameplayState.h"
 
-#define VECTOR_ZERO Vector2f (0,0)
+#define VECTOR_ZERO Vector2i(0,0)
 
 using namespace sf;
 using namespace std;
+using namespace cgf;
 
-Enemy::Enemy(){
-
-}
-
-Enemy::~Enemy(){
+Enemy::Enemy()
+{
 
 }
 
-void Enemy::init(sf::Vector2i position){
+Enemy::~Enemy()
+{
+    //dtor
+}
 
-    load("data/img/survivor/survivor1.png", 179, 179, 0, 0, 0, 0, 5, 8);
-    loadAnimation("data/img/survivor/survivor1_anim.xml");
-    setColor(Color(255,0,0,255));
-    setOrigin(getSize().x/2.0, getSize().y/2.0);
-    setPosition(Vector2f(position));
-    updateState(Idle);
-    play();
+void Enemy::init() {
+
+    clock = Clock();
+
+    Time zero = Time().Zero;
+    Time coolDown = seconds(2.0);
+
+    updateState(Top_Idle);
+
+    physics = cgf::Physics::instance();
+
+    body = physics->newCircle(GameplayState::BodyID::EnemyID, 0, 0, 12.5, 400, 0.5, 1.0, false);
+    physics->setImage(body, &topSprite);
+    body->SetFixedRotation(false);
+    body->SetLinearDamping(10);
+}
+
+void Enemy::setPosition(b2Vec2 pos) {
+    physics->setPosition(body, pos);
+}
+
+void Enemy::meleeAttack() {
 
 }
 
-void Enemy::movement(Player player){
+void Enemy::draw(RenderWindow* screen) {
+    screen->draw(topSprite);
+}
 
-//    bool shouldUpdateAnimation = false;
-//
-//    bool sprint = false;
-//
-//    float topRotation = Calculator::angleBetweenPoints(getPosition(), Vector2f(player.getPosition().x, player.getPosition().y));
+void Enemy::update(float updateTimeInterval) {
+    topSprite.update(updateTimeInterval, false);
+}
+
+void Enemy::updateMovement(sf::Vector2i lookingPoint, sf::Vector2i moveDirection, bool sprint) {
+
+    b2Vec2 bodyPos = physics->getPosition(body);
+    Vector2f pos = Vector2f(bodyPos.x, bodyPos.y);
+
+    lookingLine[0].position = pos;
+    lookingLine[0].color = Color::Yellow;
+    lookingLine[1].position = Vector2f(lookingPoint.x, lookingPoint.y);
+    lookingLine[1].color = Color::Yellow;
+
+    float topRotation = Calculator::angleBetweenPoints(pos, Vector2f(lookingPoint.x, lookingPoint.y));
+    body->SetTransform(body->GetPosition(), topRotation);
+
 //    topRotation = Calculator::toDegrees(topRotation);
-//
-//    setRotation(topRotation);
-//
-//    TopState s = Top_Idle;
-//
-//    if (getPosition() == VECTOR_ZERO) {
-//        setXspeed(0);
-//        setYspeed(0);
-//        s = Top_Idle;
-//    }
-//     else {
-//        if (sprint) {
-//            setXspeed(getPosition().x * runSpeed);
-//            setYspeed(getPosition().y * runSpeed);
-//            s = Top_Run;
-//        } else {
-//            setXspeed(player.getPosition().x - getPosition().x * walkSpeed);
-//            setYspeed(player.getPosition().y - getPosition().y * walkSpeed);
-//            s = Top_Walk;
-//        }
-//    }
-//
-//    updateState(s);
+//    topSprite.setRotation(topRotation);
 
-}
+    TopState s = Top_Idle;
 
-
-void Enemy::updateState(State state) {
-
-    if (state != state) {
-        switch(state) {
-        case Idle :
-            setAnimRate(15);
-            setAnimation("idle");
-            break;
-
-        case Walk :
-            setAnimRate(30);
-            setAnimation("move");
-            break;
-
-        case Run :
-            setAnimRate(55);
-            setAnimation("move");
-            break;
-
-
-
-        default: ;
+    if (moveDirection == VECTOR_ZERO) {
+        s = Top_Idle;
+    } else {
+        if (sprint) {
+            body->ApplyLinearImpulse(b2Vec2(moveDirection.x*runSpeed, moveDirection.y*runSpeed), body->GetWorldCenter(), true);
+            s = Top_Run;
+        } else {
+            body->ApplyLinearImpulse(b2Vec2(moveDirection.x*walkSpeed, moveDirection.y*walkSpeed), body->GetWorldCenter(), true);
+            s = Top_Walk;
         }
-
-        this->state = state;
-        play();
     }
+
+    updateState(s);
+//    cout << moveDirection.x << ", " << moveDirection.y << endl;
 }
+
+void Enemy::updateState(TopState state) {
+
+}
+
