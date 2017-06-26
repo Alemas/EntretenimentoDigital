@@ -2,6 +2,7 @@
 #include "GameplayState.h"
 
 #define VECTOR_ZERO Vector2i(0,0)
+#define VECTOR_ZEROf Vector2f(0,0)
 
 using namespace sf;
 using namespace std;
@@ -91,7 +92,13 @@ Bullet* Player::shoot() {
         w.lastShootTime = clock.getElapsedTime();
         w.currentMagazine -= 1;
 
-        return new Bullet(w.shootDamage, Vector2f(topSprite.getPosition().x/30, topSprite.getPosition().y/30));
+        Vector2f direction = Vector2f(cos(topSprite.getRotation()), sin(topSprite.getRotation()));
+
+        Vector2f position = Calculator::rotatedPoint(topSprite.getRotation(), Vector2f(3.0, 0));
+        position.x = position.x + topSprite.getPosition().x/30;
+        position.y = position.y + topSprite.getPosition().y/30;
+
+        return new Bullet(w.shootDamage, position, direction);
     }
 
     return nullptr;

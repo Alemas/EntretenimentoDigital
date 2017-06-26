@@ -11,6 +11,7 @@ class Calculator
 
         static float angleBetweenPoints(sf::Vector2f p1, sf::Vector2f p2);
         static float toDegrees(float radiansValue);
+        static sf::Vector2f rotatedPoint(float rotation, sf::Vector2f point);
 
     protected:
 
