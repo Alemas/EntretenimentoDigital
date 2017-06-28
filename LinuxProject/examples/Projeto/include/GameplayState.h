@@ -8,6 +8,7 @@
 #include <Player.h>
 #include <Enemy.h>
 #include <Bullet.h>
+#include <HUD.h>
 #include <tmx/MapLoader.h>
 #include <SFML/Graphics.hpp>
 
@@ -46,6 +47,7 @@ class GameplayState : public cgf::GameState
     cgf::Physics* physics;
     bool firstTime;
 
+    HUD hud = HUD();
     Player player;
     Enemy enemy;
     void centerMapOnPlayer();

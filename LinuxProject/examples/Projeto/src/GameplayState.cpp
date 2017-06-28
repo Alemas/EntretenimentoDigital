@@ -14,6 +14,8 @@ void GameplayState::init() {
     player.init();
     enemy.init();
 
+    hud.init(&player);
+
     im = InputManager::instance();
 
     physics = cgf::Physics::instance();
@@ -162,6 +164,8 @@ void GameplayState::draw(cgf::Game* game) {
     }
 
     physics->drawDebugData();
+
+    hud.draw(screen);
 
 //    cout << "GameplayState: draw" << endl;
 }

@@ -118,6 +118,7 @@
 		<Unit filename="include/Calculator.h" />
 		<Unit filename="include/Enemy.h" />
 		<Unit filename="include/GameplayState.h" />
+		<Unit filename="include/HUD.h" />
 		<Unit filename="include/MenuState.h" />
 		<Unit filename="include/Player.h" />
 		<Unit filename="include/SplashState.h" />
@@ -126,6 +127,7 @@
 		<Unit filename="src/Calculator.cpp" />
 		<Unit filename="src/Enemy.cpp" />
 		<Unit filename="src/GameplayState.cpp" />
+		<Unit filename="src/HUD.cpp" />
 		<Unit filename="src/MenuState.cpp" />
 		<Unit filename="src/Player.cpp" />
 		<Unit filename="src/SplashState.cpp" />

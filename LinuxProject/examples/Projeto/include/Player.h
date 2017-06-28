@@ -8,9 +8,24 @@
 #include "Physics.h"
 #include <SFML/Graphics.hpp>
 
+#define MAX_HEALTH 100
+
 class Player
 {
     public:
+
+        enum WeaponType {Knife, Pistol, Shotgun, Rifle};
+
+        struct Weapon {
+            WeaponType type;
+            bool unlocked;
+            bool melee;
+            bool shoot;
+            int maxAmmo, currentAmmo, magazineCapacity, currentMagazine, shootDamage, meleeDamage;
+            sf::Time lastShootTime, lastReloadTime, lastMeleeTime;
+            sf::Time shootCooldown, reloadTime, meleeCooldown;
+        };
+
         Player();
         virtual ~Player();
         b2Body* body;
@@ -26,6 +41,12 @@ class Player
         void update(float deltaTime);
         sf::Vector2f getPosition() { return topSprite.getPosition(); }
         void setPosition(b2Vec2 pos);
+        Weapon getCurrentWeapon() { return weapons[currentWeapon]; }
+
+        int getHealth() { return health; }
+        int getMaxHealth() { return MAX_HEALTH; }
+        void takeDamage(int damage);
+        bool isAlive() { return health > 0; }
 
     protected:
 
@@ -33,21 +54,11 @@ class Player
     enum FeetState {Feet_Idle, Walk, Run, Strafe_Left, Strafe_Right};
     enum TopState {Top_Idle, Top_Walk, Top_Run, Melee, Shoot, Reload, Invalid};
 
-    enum WeaponType {Knife, Pistol, Shotgun, Rifle};
-
-    struct Weapon {
-        WeaponType type;
-        bool unlocked;
-        bool melee;
-        bool shoot;
-        int maxAmmo, currentAmmo, magazineCapacity, currentMagazine, shootDamage, meleeDamage;
-        sf::Time lastShootTime, lastReloadTime, lastMeleeTime;
-        sf::Time shootCooldown, reloadTime, meleeCooldown;
-    };
-
     Weapon weapons[4];
     int currentWeapon = 0;
     int lastWeapon = -1;
+
+    int health = MAX_HEALTH;
 
     bool reloading = false;
     sf::Time lastReloadTime;

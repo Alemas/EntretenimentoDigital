@@ -98,7 +98,7 @@ Bullet* Player::shoot() {
 
         Vector2f direction = Vector2f(cos(rotation), sin(rotation));
 
-        Vector2f position = Calculator::rotatedPoint(rotation, Vector2f(2.0, 1));
+        Vector2f position = Calculator::rotatedPoint(rotation, Vector2f(2.5, 1));
         position.x = position.x + topSprite.getPosition().x/30;
         position.y = position.y + topSprite.getPosition().y/30;
 
@@ -127,6 +127,17 @@ void Player::changeWeapon(int slot) {
         }
     }
 }
+
+void Player::takeDamage(int damage) {
+
+    if (damage >= health) {
+        health = 0;
+    } else {
+        health -= damage;
+    }
+
+}
+
 
 void Player::draw(RenderWindow* screen) {
     screen->draw(topSprite);
