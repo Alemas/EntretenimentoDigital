@@ -15,7 +15,9 @@ float Calculator::toDegrees(float radiansValue) {
     return (180.0/M_PI) * radiansValue;
 }
 
-
+float Calculator::toRadians(float degreesValue) {
+    return (M_PI/180.0) * degreesValue;
+}
 
 sf::Vector2f Calculator::rotatedPoint(float rotation, sf::Vector2f point) {
 
@@ -29,3 +31,4 @@ sf::Vector2f Calculator::rotatedPoint(float rotation, sf::Vector2f point) {
     return r;
 
 }
+

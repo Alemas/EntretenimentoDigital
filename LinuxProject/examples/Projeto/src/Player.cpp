@@ -83,18 +83,20 @@ Bullet* Player::shoot() {
         return nullptr;
     }
 
-    reloading = false;
-
     Time elapsedTime = clock.getElapsedTime() - w.lastShootTime;
 
     if (elapsedTime >= w.shootCooldown) {
 
+        reloading = false;
+
         w.lastShootTime = clock.getElapsedTime();
         w.currentMagazine -= 1;
 
-        Vector2f direction = Vector2f(cos(topSprite.getRotation()), sin(topSprite.getRotation()));
+        float rotation = Calculator::toRadians(topSprite.getRotation());
 
-        Vector2f position = Calculator::rotatedPoint(topSprite.getRotation(), Vector2f(3.0, 0));
+        Vector2f direction = Vector2f(cos(rotation), sin(rotation));
+
+        Vector2f position = Calculator::rotatedPoint(rotation, Vector2f(3.0, 0));
         position.x = position.x + topSprite.getPosition().x/30;
         position.y = position.y + topSprite.getPosition().y/30;
 

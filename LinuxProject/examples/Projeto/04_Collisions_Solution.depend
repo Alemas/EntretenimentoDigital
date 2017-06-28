@@ -1178,7 +1178,7 @@
 	"GameState.h"
 	"GameplayState.h"
 
-1497928528 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/include/GameplayState.h
+1498658195 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/include/GameplayState.h
 	<iostream>
 	<GameState.h>
 	<InputManager.h>
@@ -1227,11 +1227,11 @@
 
 1497904934 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/CGF/include/pugixml/pugiconfig.hpp
 
-1497904934 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/include/Calculator.h
+1498662710 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/include/Calculator.h
 	<SFML/Graphics.hpp>
 	<cmath>
 
-1497904934 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/PlayState_Solution.cpp
+1498658195 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/PlayState_Solution.cpp
 	<iostream>
 	<cmath>
 	"Game.h"
@@ -1274,7 +1274,7 @@
 1497904934 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/CGF/include/Debug.h
 	<iostream>
 
-1497904934 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/Calculator.cpp
+1498662838 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/Calculator.cpp
 	"Calculator.h"
 
 1497904934 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/MenuState.cpp
@@ -1287,7 +1287,7 @@
 1497909201 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/SplashState.cpp
 	"SplashState.h"
 
-1497971892 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/GameplayState.cpp
+1498658195 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/GameplayState.cpp
 	"GameplayState.h"
 
 1494697715 source:c:\users\bruno\desktop\entretenimento\entretenimentodigital\linuxproject\examples\projeto\main.cpp
@@ -2944,18 +2944,26 @@
 	<Box2D/Box2D.h>
 	<SFML/Graphics.hpp>
 
-1497904934 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/include/Enemy.h
+1498658195 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/include/Enemy.h
 	<Sprite.h>
 	<iostream>
-	<Player.h>
+	<Bullet.h>
 	"Calculator.h"
+	"Physics.h"
+	<SFML/Graphics.hpp>
 
-1497904934 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/Enemy.cpp
+1498658195 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/Enemy.cpp
 	"Enemy.h"
+	"GameplayState.h"
 
 1497300761 ated upstream
 
-1497971631 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/include/Bullet.h
+1498658195 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/include/Bullet.h
+	<Sprite.h>
+	<iostream>
+	"Calculator.h"
+	"Physics.h"
+	<SFML/Graphics.hpp>
 
 1497300761 source:/home/hariel/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/main.cpp
 	<iostream>
@@ -3521,13 +3529,14 @@
 	"Physics.h"
 	<SFML/Graphics.hpp>
 
-1497972125 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/Bullet.cpp
+1498663286 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/Bullet.cpp
 	"Bullet.h"
 	"GameplayState.h"
 
-<<<<<<< HEAD
+1498510586 D
+
 1498510855 /home/13104485/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/include/Bullet.h
-=======
+
 1497972125 tate.h"
 
 1497300762 /home/hariel/Desktop/EntretenimentoDigital/LinuxProject/lib/CGF/include/Sprite.h
@@ -3807,18 +3816,17 @@
 	"SplashState.h"
 
 1498510586 /home/hariel/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/include/Bullet.h
->>>>>>> 6c563f6572d30bfd4b2d7b3a5c2ca32460b76bab
+
+1498510586 63f6572d30bfd4b2d7b3a5c2ca32460b76bab
 	<Sprite.h>
 	<iostream>
 	"Calculator.h"
 	"Physics.h"
 	<SFML/Graphics.hpp>
-
-<<<<<<< HEAD
-1498513948 source:/home/13104485/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/Bullet.cpp
-=======
-1498510586 source:/home/hariel/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/Bullet.cpp
->>>>>>> 6c563f6572d30bfd4b2d7b3a5c2ca32460b76bab
 	"Bullet.h"
 	"GameplayState.h"
+
+1498513948 source:/home/13104485/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/Bullet.cpp
+
+1498510586 source:/home/hariel/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/Bullet.cpp
 
