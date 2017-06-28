@@ -51,6 +51,7 @@ class GameplayState : public cgf::GameState
     Player player;
     Enemy enemy;
     void centerMapOnPlayer();
+    void updatePhysics();
     bool checkCollision(uint8_t layer, cgf::Game* game, cgf::Sprite* obj);
     sf::Uint16 getCellFromMap(uint8_t layernum, float x, float y);
 

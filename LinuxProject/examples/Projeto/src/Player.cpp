@@ -23,13 +23,13 @@ void Player::init() {
     clock = Clock();
 
     Time zero = Time().Zero;
-    Time coolDown = seconds(0.0);
+    Time coolDown = seconds(0.4);
 
     weapons[0] = Weapon{Knife,
                         true, true, false,
                         0, 0, 0, 0, 0, 10,
                         zero, zero, zero,
-                        zero, zero, coolDown};
+                        zero, zero, seconds(0.2)};
 
     weapons[1] = Weapon{Pistol,
                         true, true, true,
@@ -37,13 +37,13 @@ void Player::init() {
                         zero, zero, zero,
                         coolDown, coolDown, coolDown};
 
-    weapons[2] = Weapon{Shotgun,
+    weapons[2] = Weapon{Rifle,
                         false, true, true,
                         0, 0, 0, 0, 0, 10,
                         zero, zero, zero,
                         coolDown, coolDown, coolDown};
 
-    weapons[3] = Weapon{Rifle,
+    weapons[3] = Weapon{Shotgun,
                         false, true, true,
                         0, 0, 0, 0, 0, 10,
                         zero, zero, zero,
@@ -59,6 +59,8 @@ void Player::init() {
     body->SetLinearDamping(10);
 
     lastReloadTime = zero;
+
+    cout << "COR = " << topSprite.getColor().toInteger() << endl;
 }
 
 void Player::setPosition(b2Vec2 pos) {
@@ -127,11 +129,19 @@ void Player::changeWeapon(int slot) {
 }
 
 void Player::takeDamage(int damage) {
+
+    if (isInvincible)
+        return;
+
     if (damage >= health) {
         health = 0;
     } else {
         health -= damage;
     }
+
+    topSprite.setColor(sf::Color::Red);
+    isInvincible = true;
+    lastDamageTookTime = clock.getElapsedTime();
 }
 
 
@@ -160,6 +170,17 @@ void Player::update(float updateTimeInterval) {
 
         }
     }
+
+    if (isInvincible) {
+        Time elapsedTime = clock.getElapsedTime() - lastDamageTookTime;
+        if (elapsedTime > seconds(0.2)) {
+            topSprite.setColor(Color::White);
+        }
+        if (elapsedTime >= invincibleCooldown) {
+            isInvincible = false;
+        }
+    }
+
 }
 
 void Player::updateMovement(sf::Vector2i lookingPoint, sf::Vector2i moveDirection, bool sprint) {
@@ -225,6 +246,10 @@ void Player::updateState(TopState state) {
         //Necessário para atualizar a animação atual
         topState = Invalid;
     }
+
+//    if (state == Shoot || state == Reload || state == Melee) {
+//
+//    }
 
     if (state != topState) {
         switch(state) {

@@ -36,12 +36,13 @@ class Player
         void meleeAttack();
         Bullet* shoot();
         void reload();
-        void changeWeapon(int slot);
-        void draw(sf::RenderWindow* screen);
+
+          void draw(sf::RenderWindow* screen);
         void update(float deltaTime);
         sf::Vector2f getPosition() { return topSprite.getPosition(); }
         void setPosition(b2Vec2 pos);
         Weapon getCurrentWeapon() { return weapons[currentWeapon]; }
+        void changeWeapon(int slot);
 
         int getHealth() { return health; }
         int getMaxHealth() { return MAX_HEALTH; }
@@ -51,34 +52,37 @@ class Player
     protected:
 
     private:
-    enum FeetState {Feet_Idle, Walk, Run, Strafe_Left, Strafe_Right};
-    enum TopState {Top_Idle, Top_Walk, Top_Run, Melee, Shoot, Reload, Invalid};
+        enum FeetState {Feet_Idle, Walk, Run, Strafe_Left, Strafe_Right};
+        enum TopState {Top_Idle, Top_Walk, Top_Run, Melee, Shoot, Reload, Invalid};
 
-    Weapon weapons[4];
-    int currentWeapon = 0;
-    int lastWeapon = -1;
+        Weapon weapons[4];
+        int currentWeapon = 0;
+        int lastWeapon = -1;
 
-    int health = MAX_HEALTH;
+        int health = MAX_HEALTH;
+        sf::Time invincibleCooldown = sf::seconds(0.5);
+        sf::Time lastDamageTookTime = sf::seconds(0);
+        bool isInvincible = false;
 
-    bool reloading = false;
-    sf::Time lastReloadTime;
+        bool reloading = false;
+        sf::Time lastReloadTime;
 
-    sf::Clock clock;
+        sf::Clock clock;
 
-    cgf::Physics* physics;
+        cgf::Physics* physics;
 
-    FeetState feetState;
-    TopState topState = Reload;
+        FeetState feetState;
+        TopState topState = Reload;
 
-    int walkSpeed = 2000;
-    int runSpeed = 3500;
+        int walkSpeed = 2000;
+        int runSpeed = 3500;
 
-    cgf::Sprite topSprite;
-    cgf::Sprite feetSprite;
+        cgf::Sprite topSprite;
+        cgf::Sprite feetSprite;
 
-    sf::Vertex lookingLine[2];
+        sf::Vertex lookingLine[2];
 
-    void updateState(TopState state);
+        void updateState(TopState state);
 };
 
 #endif // PLAYER_H

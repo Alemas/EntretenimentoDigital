@@ -147,22 +147,7 @@ void GameplayState::update(cgf::Game* game) {
         firstTime = false;
     }
 
-    physics->step();
-
-    b2Body* bptr;
-
-    if((bptr=physics->haveContact(WallID, BulletID)) != NULL) {
-        for(int i = 0; i < bullets.size(); i++) {
-        Bullet* bullet = bullets.at(i);
-            if (bullet->body == bptr) {
-                delete bullet;
-                bullets.erase(bullets.begin() + i);
-                cout << i << endl;
-                break;
-            }
-        }
-        physics->destroy(bptr);
-    }
+    updatePhysics();
 
     player.update(game->getUpdateInterval());
 
@@ -181,11 +166,35 @@ void GameplayState::draw(cgf::Game* game) {
         screen->draw(bullet->sprite);
     }
 
-    physics->drawDebugData();
+//    physics->drawDebugData();
 
     hud.draw(screen);
 
 //    cout << "GameplayState: draw" << endl;
+}
+
+void GameplayState::updatePhysics() {
+
+    physics->step();
+
+    b2Body* bptr;
+
+    if((bptr=physics->haveContact(WallID, BulletID)) != NULL) {
+        for(int i = 0; i < bullets.size(); i++) {
+        Bullet* bullet = bullets.at(i);
+            if (bullet->body == bptr) {
+                delete bullet;
+                bullets.erase(bullets.begin() + i);
+                cout << i << endl;
+                break;
+            }
+        }
+        physics->destroy(bptr);
+    }
+
+    if((bptr=physics->haveContact(WallID, PlayerID)) != NULL) {
+        player.takeDamage(10);
+    }
 }
 
 void GameplayState::centerMapOnPlayer()
