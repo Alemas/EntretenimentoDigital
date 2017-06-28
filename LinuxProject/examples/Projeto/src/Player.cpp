@@ -23,7 +23,7 @@ void Player::init() {
     clock = Clock();
 
     Time zero = Time().Zero;
-    Time coolDown = seconds(2.0);
+    Time coolDown = seconds(0.4);
 
     weapons[0] = Weapon{Knife,
                         true, true, false,
@@ -85,18 +85,20 @@ Bullet* Player::shoot() {
 
     Time elapsedTime = clock.getElapsedTime() - w.lastShootTime;
 
+    cout << w.lastShootTime.asSeconds() << endl;
+
     if (elapsedTime >= w.shootCooldown) {
 
         reloading = false;
 
-        w.lastShootTime = clock.getElapsedTime();
-        w.currentMagazine -= 1;
+        weapons[currentWeapon].lastShootTime = clock.getElapsedTime();
+        weapons[currentWeapon].currentMagazine -= 1;
 
         float rotation = Calculator::toRadians(topSprite.getRotation());
 
         Vector2f direction = Vector2f(cos(rotation), sin(rotation));
 
-        Vector2f position = Calculator::rotatedPoint(rotation, Vector2f(3.0, 0));
+        Vector2f position = Calculator::rotatedPoint(rotation, Vector2f(2.0, 1));
         position.x = position.x + topSprite.getPosition().x/30;
         position.y = position.y + topSprite.getPosition().y/30;
 
