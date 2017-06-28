@@ -123,6 +123,9 @@ void GameplayState::handleEvents(cgf::Game* game) {
             bullets.push_back(bullet);
 
     }
+    if(im->testEvent("R")) {
+        player.reload();
+    }
 
     sf::View view = screen->getView();
 

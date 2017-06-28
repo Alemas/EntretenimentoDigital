@@ -85,8 +85,6 @@ Bullet* Player::shoot() {
 
     Time elapsedTime = clock.getElapsedTime() - w.lastShootTime;
 
-    cout << w.lastShootTime.asSeconds() << endl;
-
     if (elapsedTime >= w.shootCooldown) {
 
         reloading = false;
@@ -129,13 +127,11 @@ void Player::changeWeapon(int slot) {
 }
 
 void Player::takeDamage(int damage) {
-
     if (damage >= health) {
         health = 0;
     } else {
         health -= damage;
     }
-
 }
 
 
@@ -154,12 +150,12 @@ void Player::update(float updateTimeInterval) {
         if (elapsedTime >= w.reloadTime) {
             reloading = false;
 
-            if (w.currentAmmo > w.magazineCapacity) {
-                w.currentMagazine = w.currentAmmo;
-                w.currentAmmo = 0;
+            if (w.currentAmmo < w.magazineCapacity) {
+                weapons[currentWeapon].currentMagazine = w.currentAmmo;
+                weapons[currentWeapon].currentAmmo = 0;
             } else {
-                w.currentMagazine = w.magazineCapacity;
-                w.currentAmmo -= w.magazineCapacity;
+                weapons[currentWeapon].currentMagazine = w.magazineCapacity;
+                weapons[currentWeapon].currentAmmo -= w.magazineCapacity;
             }
 
         }
