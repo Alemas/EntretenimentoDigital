@@ -8,10 +8,11 @@ using namespace tmx;
 
 GameplayState GameplayState::m_GameplayState;
 Vector2i mousePos = Vector2i(0,0);
-vector<Bullet> bullets;
+vector<Bullet*> bullets;
 
 void GameplayState::init() {
     player.init();
+    enemy.init();
 
     im = InputManager::instance();
 
@@ -25,6 +26,7 @@ void GameplayState::init() {
     map->Load("theLastSurvivorMap.tmx");
 
     player.setPosition(b2Vec2(20, 20));
+    enemy.setPosition(b2Vec2(30,30));
 
     auto& layers = map->GetLayers();
     tmx::MapLayer& layer = layers[1];
@@ -47,22 +49,22 @@ void GameplayState::init() {
 
     im->addMouseInput("LeftClick", Mouse::Left);
 
-    cout << "GameplayState: init" << endl;
+//    cout << "GameplayState: init" << endl;
 }
 
 void GameplayState::cleanup() {
 
-    cout << "GameplayState: cleanup" << endl;
+//    cout << "GameplayState: cleanup" << endl;
 }
 
 void GameplayState::pause() {
 
-    cout << "GameplayState: pause" << endl;
+//    cout << "GameplayState: pause" << endl;
 }
 
 void GameplayState::resume() {
 
-    cout << "GameplayState: resume" << endl;
+//    cout << "GameplayState: resume" << endl;
 }
 
 void GameplayState::handleEvents(cgf::Game* game) {
@@ -116,7 +118,7 @@ void GameplayState::handleEvents(cgf::Game* game) {
         Bullet* bullet = player.shoot();
 
         if (bullet != nullptr)
-            bullets.push_back(*bullet);
+            bullets.push_back(bullet);
 
     }
 
@@ -127,7 +129,7 @@ void GameplayState::handleEvents(cgf::Game* game) {
 
     player.updateMovement(mousePos, Vector2i(dirx, diry), sprint);
 
-    cout << "GameplayState: handleEvents" << endl;
+//    cout << "GameplayState: handleEvents" << endl;
 }
 
 void GameplayState::update(cgf::Game* game) {
@@ -145,7 +147,7 @@ void GameplayState::update(cgf::Game* game) {
     player.update(game->getUpdateInterval());
 
     centerMapOnPlayer();
-    cout << "GameplayState: update" << endl;
+//    cout << "GameplayState: update" << endl;
 }
 
 void GameplayState::draw(cgf::Game* game) {
@@ -156,12 +158,12 @@ void GameplayState::draw(cgf::Game* game) {
     player.draw(screen);
 
     for(auto& bullet: bullets) {
-        screen->draw(bullet.sprite);
+        screen->draw(bullet->sprite);
     }
 
     physics->drawDebugData();
 
-    cout << "GameplayState: draw" << endl;
+//    cout << "GameplayState: draw" << endl;
 }
 
 void GameplayState::centerMapOnPlayer()
