@@ -21,7 +21,6 @@ class Bullet
     private:
         int damage;
         cgf::Physics* physics;
-
 };
 
 #endif // BULLET_H

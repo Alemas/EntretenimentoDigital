@@ -149,6 +149,21 @@ void GameplayState::update(cgf::Game* game) {
 
     physics->step();
 
+    b2Body* bptr;
+
+    if((bptr=physics->haveContact(WallID, BulletID)) != NULL) {
+        for(int i = 0; i < bullets.size(); i++) {
+        Bullet* bullet = bullets.at(i);
+            if (bullet->body == bptr) {
+                delete bullet;
+                bullets.erase(bullets.begin() + i);
+                cout << i << endl;
+                break;
+            }
+        }
+        physics->destroy(bptr);
+    }
+
     player.update(game->getUpdateInterval());
 
     centerMapOnPlayer();

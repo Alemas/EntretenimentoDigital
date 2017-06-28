@@ -27,6 +27,6 @@ Bullet::Bullet(int damage, Vector2f position, sf::Vector2f direction) {
 
 Bullet::~Bullet()
 {
-    //dtor
+
 }
 

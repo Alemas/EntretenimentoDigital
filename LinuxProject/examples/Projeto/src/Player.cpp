@@ -23,7 +23,7 @@ void Player::init() {
     clock = Clock();
 
     Time zero = Time().Zero;
-    Time coolDown = seconds(0.4);
+    Time coolDown = seconds(0.0);
 
     weapons[0] = Weapon{Knife,
                         true, true, false,
