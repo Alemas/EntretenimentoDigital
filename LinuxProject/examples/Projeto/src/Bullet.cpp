@@ -15,7 +15,7 @@ Bullet::Bullet(int damage, Vector2f position, sf::Vector2f direction) {
     physics = cgf::Physics::instance();
 
     sprite.setOrigin(sprite.getSize().x/2.0, sprite.getSize().y/2.0);
-    body = physics->newCircle(GameplayState::BulletID, 0, 0, 10.0, 100, 0, 0, false);
+    body = physics->newCircle(GameplayState::BulletID, 0, 0, 5.0, 100, 0, 0, false);
 
     body->SetBullet(true);
 

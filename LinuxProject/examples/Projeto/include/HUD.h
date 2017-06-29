@@ -13,6 +13,7 @@ class HUD
         virtual ~HUD();
         void init(Player* player);
         void draw(sf::RenderWindow* screen);
+        void showMessage(std::string message, sf::Time time);
 
     protected:
 
@@ -26,6 +27,9 @@ class HUD
     sf::Text txtAmmo;
     sf::Text txtHP;
     sf::Text txtScore;
+    sf::Text txtmsg;
+
+    sf::Clock clock;
 };
 
 #endif // HUD_H

@@ -18,6 +18,8 @@ void HUD::init(Player* player) {
 
     this->player = player;
 
+    clock = Clock();
+
      if (!font.loadFromFile("data/fonts/Sansation_Regular.ttf")) {
         cout << "Cannot load Sansation_Regular.ttf font" << endl;
         exit(1);
@@ -26,6 +28,7 @@ void HUD::init(Player* player) {
     txtHP.setFont(font);
     txtAmmo.setFont(font);
     txtScore.setFont(font);
+    txtmsg.setFont(font);
 
     txtHP.setCharacterSize(50);
     txtAmmo.setCharacterSize(100);
@@ -53,11 +56,18 @@ string HUD::getAmmoString() {
     return ammo;
 }
 
+void HUD::showMessage(string message, sf::Time time) {
+
+
+
+}
+
+
 void HUD::update(sf::RenderWindow* screen) {
 
     txtHP.setString(to_string(player->getHealth()));
     txtAmmo.setString(getAmmoString());
-    txtScore.setString("100");
+    txtScore.setString(L"100");
 
     Vector2f center = screen->getView().getCenter();
     Vector2f viewSize = screen->getView().getSize();

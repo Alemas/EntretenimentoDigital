@@ -31,11 +31,22 @@ void GameplayState::init() {
     enemy.setPosition(b2Vec2(30,30));
 
     auto& layers = map->GetLayers();
-    tmx::MapLayer& layer = layers[1];
-    for(auto& object: layer.objects) //.begin(); object != layer.objects.end(); ++object)
+    tmx::MapLayer& collisionLayer = layers[1];
+    for(auto& object: collisionLayer.objects) //.begin(); object != layer.objects.end(); ++object)
     {
         sf::FloatRect rect = object.GetAABB();
         physics->newRect(WallID, rect.left, rect.top, rect.width, rect.height, 1, 1.0, 0, true);
+    }
+
+    tmx::MapLayer& objectsOfInterestLayer = layers[2];
+    for(auto& object: objectsOfInterestLayer.objects) {
+
+        string spawn = object.GetPropertyString("spawn");
+
+        if (spawn == "0") {
+            Vector2f pos = object.GetPosition();
+            player.setPosition(b2Vec2(pos.x/30, pos.y/30));
+        }
     }
 
     im->addKeyInput("Left", Keyboard::A);
@@ -166,7 +177,7 @@ void GameplayState::draw(cgf::Game* game) {
         screen->draw(bullet->sprite);
     }
 
-//    physics->drawDebugData();
+    physics->drawDebugData();
 
     hud.draw(screen);
 
