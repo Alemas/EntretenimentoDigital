@@ -29,7 +29,7 @@ void Player::init() {
                         true, true, false,
                         0, 0, 0, 0, 0, 10,
                         zero, zero, zero,
-                        zero, zero, seconds(0.2)};
+                        zero, seconds(0.5), seconds(0.2)};
 
     weapons[1] = Weapon{Pistol,
                         true, true, true,
@@ -102,6 +102,8 @@ Bullet* Player::shoot() {
         position.x = position.x + topSprite.getPosition().x/30;
         position.y = position.y + topSprite.getPosition().y/30;
 
+        updateState(Shoot);
+
         return new Bullet(w.shootDamage, position, direction);
     }
 
@@ -115,6 +117,7 @@ void Player::reload() {
     }
     reloading = true;
     lastReloadTime = clock.getElapsedTime();
+    updateState(Reload);
 }
 
 void Player::changeWeapon(int slot) {
@@ -230,8 +233,8 @@ void Player::updateState(TopState state) {
     //        topSprite.setColor(Color::Blue);
             break;
         case 1:
-            topSprite.load("data/img/survivor/survivor_handgun.png", 179, 179, 0, 0, 0, 0, 5, 8);
-            topSprite.loadAnimation("data/img/survivor/survivor_handgun_anim.xml");
+            topSprite.load("data/img/survivor/survivor_handgun_complete.png", 179, 179, 0, 0, 0, 0, 10, 6, 58);
+            topSprite.loadAnimation("data/img/survivor/survivor_handgun_complete_anim.xml");
     //        topSprite.setColor(Color::Yellow);
             break;
         case 2:
@@ -247,9 +250,11 @@ void Player::updateState(TopState state) {
         topState = Invalid;
     }
 
-//    if (state == Shoot || state == Reload || state == Melee) {
-//
-//    }
+    if ((topState == Shoot || topState == Reload || topState == Melee) && topState != Invalid) {
+        if (topSprite.isPlaying()) {
+            return;
+        }
+    }
 
     if (state != topState) {
         switch(state) {
@@ -266,6 +271,33 @@ void Player::updateState(TopState state) {
         case Top_Run :
             topSprite.setAnimRate(55);
             topSprite.setAnimation("move");
+            break;
+
+         case Melee :
+            if (weapons[currentWeapon].melee) {
+                topSprite.setAnimRate(30);
+                topSprite.setAnimation("meleeattack");
+            } else {
+                topState = Invalid;
+            }
+            break;
+
+        case Shoot :
+            if (weapons[currentWeapon].shoot) {
+                topSprite.setAnimRate(30);
+                topSprite.setAnimation("shoot");
+            } else {
+                topState = Invalid;
+            }
+            break;
+
+        case Reload :
+            if (weapons[currentWeapon].shoot) {
+                topSprite.setAnimRate(30);
+                topSprite.setAnimation("reload");
+            } else {
+                topState = Invalid;
+            }
             break;
 
         default: ;
