@@ -45,9 +45,9 @@ void Player::init() {
 
     weapons[3] = Weapon{Shotgun,
                         true, true, true,
-                        0, 0, 0, 0, 0, 10,
+                        70, 50, 5, 5, 10, 7,
                         zero, zero, zero,
-                        coolDown, coolDown, coolDown};
+                        seconds(0.6), coolDown, coolDown};
 
     updateState(Top_Idle);
 
@@ -75,12 +75,13 @@ void Player::meleeAttack() {
 //    }
 }
 
-Bullet* Player::shoot() {
+vector<Bullet*> Player::shoot() {
 
     Weapon w = weapons[currentWeapon];
+    vector<Bullet*> r = vector<Bullet*>();
 
     if (!w.shoot || w.currentMagazine == 0) {
-        return nullptr;
+        return r;
     }
 
     Time elapsedTime = clock.getElapsedTime() - w.lastShootTime;
@@ -90,12 +91,8 @@ Bullet* Player::shoot() {
         reloading = false;
 
         weapons[currentWeapon].lastShootTime = clock.getElapsedTime();
-        weapons[currentWeapon].currentMagazine -= 1;
 
         float rotation = Calculator::toRadians(topSprite.getRotation());
-
-        Vector2f direction = Vector2f(cos(rotation), sin(rotation));
-
         Vector2f nonRotatedPosition = Vector2f(1.5, 1);
 
         if (w.type == Rifle || w.type == Shotgun) {
@@ -109,10 +106,26 @@ Bullet* Player::shoot() {
 
         updateState(Shoot);
 
-        return new Bullet(w.shootDamage, position, direction);
+        weapons[currentWeapon].currentMagazine -= 1;
+
+        if (w.type != Shotgun) {
+            Vector2f direction = Vector2f(cos(rotation), sin(rotation));
+            r.push_back(new Bullet(w.shootDamage, position, direction, w.type));
+        } else {
+            for (int i = -3; i < 4; i++) {
+                float variant = Calculator::toRadians(10*i);
+                Vector2f direction = Vector2f(cos(rotation + variant), sin(rotation + variant));
+
+                Vector2f position = Calculator::rotatedPoint(rotation + variant, nonRotatedPosition);
+                position.x = position.x + topSprite.getPosition().x/30;
+                position.y = position.y + topSprite.getPosition().y/30;
+
+                r.push_back(new Bullet(w.shootDamage, position, direction, w.type));
+            }
+        }
     }
 
-    return nullptr;
+    return r;
 }
 
 void Player::reload() {

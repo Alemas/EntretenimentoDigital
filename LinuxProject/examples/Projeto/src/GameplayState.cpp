@@ -128,10 +128,11 @@ void GameplayState::handleEvents(cgf::Game* game) {
         player.changeWeapon(3);
     }
     if(im->testEvent("LeftClick")) {
-        Bullet* bullet = player.shoot();
+        vector<Bullet*> newBullets = player.shoot();
 
-        if (bullet != nullptr)
-            bullets.push_back(bullet);
+        if (!newBullets.empty())
+            for(int i = 0; i < newBullets.size(); i++)
+                bullets.push_back(newBullets.at(i));
 
     }
     if(im->testEvent("R")) {

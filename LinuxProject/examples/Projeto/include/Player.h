@@ -7,6 +7,7 @@
 #include "Calculator.h"
 #include "Physics.h"
 #include <SFML/Graphics.hpp>
+#include <vector>
 
 #define MAX_HEALTH 100
 
@@ -14,7 +15,7 @@ class Player
 {
     public:
 
-        enum WeaponType {Knife, Pistol, Shotgun, Rifle};
+        enum WeaponType {Knife = 0, Pistol = 1, Shotgun = 2, Rifle = 3};
 
         struct Weapon {
             WeaponType type;
@@ -34,7 +35,7 @@ class Player
 
         void updateMovement(sf::Vector2i lookingPoint, sf::Vector2i moveDirection, bool sprint);
         void meleeAttack();
-        Bullet* shoot();
+        std::vector<Bullet*> shoot();
         void reload();
 
           void draw(sf::RenderWindow* screen);

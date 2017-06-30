@@ -1189,13 +1189,14 @@
 	<tmx/MapLoader.h>
 	<SFML/Graphics.hpp>
 
-1498684594 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/include/Player.h
+1498836908 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/include/Player.h
 	<Sprite.h>
 	<iostream>
 	<Bullet.h>
 	"Calculator.h"
 	"Physics.h"
 	<SFML/Graphics.hpp>
+	<vector>
 
 1497904934 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/lib/CGF/include/Sprite.h
 	<vector>
@@ -1281,14 +1282,14 @@
 1497904934 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/MenuState.cpp
 	"MenuState.h"
 
-1498799215 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/Player.cpp
+1498842141 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/Player.cpp
 	"Player.h"
 	"GameplayState.h"
 
 1497909201 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/SplashState.cpp
 	"SplashState.h"
 
-1498710697 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/GameplayState.cpp
+1498836929 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/GameplayState.cpp
 	"GameplayState.h"
 
 1494697715 source:c:\users\bruno\desktop\entretenimento\entretenimentodigital\linuxproject\examples\projeto\main.cpp
@@ -2959,7 +2960,7 @@
 
 1497300761 ated upstream
 
-1498681521 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/include/Bullet.h
+1498836535 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/include/Bullet.h
 	<Sprite.h>
 	<iostream>
 	"Calculator.h"
@@ -3530,7 +3531,7 @@
 	"Physics.h"
 	<SFML/Graphics.hpp>
 
-1498798146 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/Bullet.cpp
+1498842617 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/Bullet.cpp
 	"Bullet.h"
 	"GameplayState.h"
 

@@ -10,7 +10,7 @@
 class Bullet
 {
     public:
-        Bullet(int damage, sf::Vector2f position, sf::Vector2f direction);
+        Bullet(int damage, sf::Vector2f position, sf::Vector2f direction, int type);
         virtual ~Bullet();
         int getDamage() {return damage;}
         b2Body* body;
