@@ -62,6 +62,8 @@ void GameplayState::init() {
 
     im->addMouseInput("LeftClick", Mouse::Left);
 
+    startWave();
+
 //    cout << "GameplayState: init" << endl;
 }
 
@@ -79,6 +81,21 @@ void GameplayState::resume() {
 
 //    cout << "GameplayState: resume" << endl;
 }
+
+void GameplayState::startWave() {
+    string msg = "Wave " + to_string(wave.number) + " start!";
+    hud.showMessage(msg, 100, seconds(3));
+    wave.isRunning = true;
+}
+
+void GameplayState::endWave() {
+    string msg = "Wave " + to_string(wave.number) + " finished!";
+    hud.showMessage(msg, 100, seconds(3));
+    wave.number++;
+    wave.isRunning = false;
+    wave.totalEnemiesToKill += 5;
+}
+
 
 void GameplayState::handleEvents(cgf::Game* game) {
 

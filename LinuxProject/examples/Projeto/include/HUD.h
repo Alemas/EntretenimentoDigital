@@ -13,7 +13,7 @@ class HUD
         virtual ~HUD();
         void init(Player* player);
         void draw(sf::RenderWindow* screen);
-        void showMessage(std::string message, sf::Time time);
+        void showMessage(std::string message, int fontSize, sf::Time time);
 
     protected:
 
@@ -21,6 +21,8 @@ class HUD
 
     std::string getAmmoString();
     void update(sf::RenderWindow* screen);
+
+    bool shouldDisplayMessage;
 
     Player* player;
     sf::Font font;
@@ -30,6 +32,8 @@ class HUD
     sf::Text txtmsg;
 
     sf::Clock clock;
+    sf::Time msgTime;
+    sf::Time lastMsgTime;
 };
 
 #endif // HUD_H

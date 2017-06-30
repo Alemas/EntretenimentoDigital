@@ -6,6 +6,7 @@
 #include <Bullet.h>
 #include "Calculator.h"
 #include "Physics.h"
+#include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include <vector>
 
@@ -15,7 +16,7 @@ class Player
 {
     public:
 
-        enum WeaponType {Knife = 0, Pistol = 1, Shotgun = 2, Rifle = 3};
+        enum WeaponType {Knife = 0, Pistol = 1, Rifle = 2, Shotgun = 3};
 
         struct Weapon {
             WeaponType type;
@@ -25,6 +26,7 @@ class Player
             int maxAmmo, currentAmmo, magazineCapacity, currentMagazine, shootDamage, meleeDamage;
             sf::Time lastShootTime, lastReloadTime, lastMeleeTime;
             sf::Time shootCooldown, reloadTime, meleeCooldown;
+//            sf::SoundBuffer* reloadBuffer; sf::SoundBuffer* shootBuffer; sf::SoundBuffer* meleeBuffer;
         };
 
         Player();
@@ -80,6 +82,8 @@ class Player
 
         cgf::Sprite topSprite;
         cgf::Sprite feetSprite;
+
+//        sf::Sound weaponSound;
 
         sf::Vertex lookingLine[2];
 

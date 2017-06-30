@@ -39,6 +39,9 @@ void HUD::init(Player* player) {
     txtScore.setString("100");
 
     txtScore.setFillColor(Color::Yellow);
+    txtmsg.setFillColor(Color::Green);
+
+    lastMsgTime = Time::Zero;
 //    txt
 
 }
@@ -56,12 +59,14 @@ string HUD::getAmmoString() {
     return ammo;
 }
 
-void HUD::showMessage(string message, sf::Time time) {
+void HUD::showMessage(string message, int fontSize, sf::Time time) {
 
-
+    txtmsg.setString(message);
+    txtmsg.setCharacterSize(fontSize);
+    lastMsgTime = clock.getElapsedTime();
+    msgTime = time;
 
 }
-
 
 void HUD::update(sf::RenderWindow* screen) {
 
@@ -76,8 +81,12 @@ void HUD::update(sf::RenderWindow* screen) {
     txtHP.setPosition(Vector2f(origin.x + 20, origin.y + viewSize.y - 40 - txtHP.getLocalBounds().height));
     txtAmmo.setPosition(Vector2f(origin.x + viewSize.x - 50 - txtAmmo.getLocalBounds().width, origin.y + viewSize.y - 50 - txtAmmo.getLocalBounds().height));
     txtScore.setPosition(Vector2f(origin.x + viewSize.x - 50 - txtScore.getLocalBounds().width, origin.y + 20));
-}
 
+    txtmsg.setPosition(Vector2f(center.x - txtmsg.getLocalBounds().width/2, center.y));
+
+    shouldDisplayMessage = (clock.getElapsedTime() - lastMsgTime) < msgTime;
+
+}
 
 void HUD::draw(sf::RenderWindow* screen) {
 
@@ -86,6 +95,9 @@ void HUD::draw(sf::RenderWindow* screen) {
     screen->draw(txtHP);
     screen->draw(txtAmmo);
     screen->draw(txtScore);
+
+    if (shouldDisplayMessage)
+        screen->draw(txtmsg);
 
 }
 

@@ -10,5 +10,5 @@ loop   => looping animation (default)
     <sequence name="run"  start="1" end="20" loop="true" />
     <sequence name="strafe_left"  start="21" end="40" loop="true" />
     <sequence name="strafe_right"  start="41" end="60" loop="true" />
-    <sequence name="strafe_right"  start="61" end="80" loop="true" />
+    <sequence name="walk"  start="61" end="80" loop="true" />
 </animation>

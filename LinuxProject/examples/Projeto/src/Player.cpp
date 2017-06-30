@@ -25,11 +25,32 @@ void Player::init() {
     Time zero = Time().Zero;
     Time coolDown = seconds(0.4);
 
+//    SoundBuffer* knifeMeleeBuffer = new SoundBuffer();
+//
+//    SoundBuffer* handgunReloadBuffer = new SoundBuffer();
+//    SoundBuffer* rifleReloadBuffer = new SoundBuffer();
+//    SoundBuffer* shotgunReloadBuffer = new SoundBuffer();
+//
+//    SoundBuffer* handgunShootBuffer = new SoundBuffer();
+//    SoundBuffer* rifleShootBuffer = new SoundBuffer();
+//    SoundBuffer* shotgunShootBuffer = new SoundBuffer();
+//
+//    knifeMeleeBuffer->loadFromFile("data/soundeffects/knife_swing.wav");
+//
+//    handgunReloadBuffer->loadFromFile("data/soundeffects/handgun_reload.wav");
+//    rifleReloadBuffer->loadFromFile("data/soundeffects/rifle_reload.wav");
+//    shotgunReloadBuffer->loadFromFile("data/soundeffects/shotgun_reload.wav");
+//
+//    handgunShootBuffer->loadFromFile("data/soundeffects/handgun_shot.wav");
+//    rifleShootBuffer->loadFromFile("data/soundeffects/rifle_shot.wav");
+//    shotgunShootBuffer->loadFromFile("data/soundeffects/shotgun_shot.wav");
+
+
     weapons[0] = Weapon{Knife,
                         true, true, false,
                         0, 0, 0, 0, 0, 10,
                         zero, zero, zero,
-                        zero, seconds(0.5), seconds(0.2)};
+                        zero, zero, seconds(0.2)};
 
     weapons[1] = Weapon{Pistol,
                         true, true, true,
@@ -145,6 +166,8 @@ void Player::changeWeapon(int slot) {
                 reloading = false;
             }
             currentWeapon = slot;
+            //Necessário, senão o jogador pode ficar trocando de armas super rápido e atirar sempre sem ter que esperar o cooldown
+            weapons[currentWeapon].lastShootTime = clock.getElapsedTime();
         }
     }
 }

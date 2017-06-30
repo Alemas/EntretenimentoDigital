@@ -38,6 +38,14 @@ class GameplayState : public cgf::GameState
 
     private:
 
+    struct Wave {
+        int number;
+        bool isRunning;
+        int totalEnemiesToKill;
+    };
+
+    Wave wave = Wave{1, false, 10};
+
     static GameplayState m_GameplayState;
 
     sf::RenderWindow* screen;
@@ -54,6 +62,8 @@ class GameplayState : public cgf::GameState
     void updatePhysics();
     bool checkCollision(uint8_t layer, cgf::Game* game, cgf::Sprite* obj);
     sf::Uint16 getCellFromMap(uint8_t layernum, float x, float y);
+    void startWave();
+    void endWave();
 
 };
 
