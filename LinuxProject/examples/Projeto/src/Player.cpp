@@ -33,18 +33,18 @@ void Player::init() {
 
     weapons[1] = Weapon{Pistol,
                         true, true, true,
-                        100, 80, 20, 20, 0, 10,
+                        100, 80, 20, 20, 10, 5,
                         zero, zero, zero,
-                        coolDown, coolDown, coolDown};
+                        seconds(0.4), coolDown, coolDown};
 
     weapons[2] = Weapon{Rifle,
-                        false, true, true,
-                        0, 0, 0, 0, 0, 10,
+                        true, true, true,
+                        300, 270, 30, 30, 10, 7,
                         zero, zero, zero,
-                        coolDown, coolDown, coolDown};
+                        seconds(0.075), coolDown, coolDown};
 
     weapons[3] = Weapon{Shotgun,
-                        false, true, true,
+                        true, true, true,
                         0, 0, 0, 0, 0, 10,
                         zero, zero, zero,
                         coolDown, coolDown, coolDown};
@@ -59,8 +59,6 @@ void Player::init() {
     body->SetLinearDamping(10);
 
     lastReloadTime = zero;
-
-    cout << "COR = " << topSprite.getColor().toInteger() << endl;
 }
 
 void Player::setPosition(b2Vec2 pos) {
@@ -98,7 +96,14 @@ Bullet* Player::shoot() {
 
         Vector2f direction = Vector2f(cos(rotation), sin(rotation));
 
-        Vector2f position = Calculator::rotatedPoint(rotation, Vector2f(1.5, 1));
+        Vector2f nonRotatedPosition = Vector2f(1.5, 1);
+
+        if (w.type == Rifle || w.type == Shotgun) {
+            nonRotatedPosition.x = 2.5;
+            nonRotatedPosition.y = 0.8;
+        }
+
+        Vector2f position = Calculator::rotatedPoint(rotation, nonRotatedPosition);
         position.x = position.x + topSprite.getPosition().x/30;
         position.y = position.y + topSprite.getPosition().y/30;
 
@@ -230,22 +235,26 @@ void Player::updateState(TopState state) {
         case 0:
             topSprite.load("data/img/survivor/survivor_knife_complete.png", 179, 179, 0, 0, 0, 0, 11, 5);
             topSprite.loadAnimation("data/img/survivor/survivor_knife_complete_anim.xml");
+            topSprite.setOrigin(topSprite.getSize().x*0.5, topSprite.getSize().y/2.0);
     //        topSprite.setColor(Color::Blue);
             break;
         case 1:
             topSprite.load("data/img/survivor/survivor_handgun_complete.png", 179, 179, 0, 0, 0, 0, 10, 6, 58);
             topSprite.loadAnimation("data/img/survivor/survivor_handgun_complete_anim.xml");
+            topSprite.setOrigin(topSprite.getSize().x*0.5, topSprite.getSize().y/2.0);
     //        topSprite.setColor(Color::Yellow);
             break;
         case 2:
-            topSprite.setColor(Color::Red);
+            topSprite.load("data/img/survivor/survivor_rifle_complete.png", 179, 179, 0, 0, 0, 0, 11, 6, 63);
+            topSprite.loadAnimation("data/img/survivor/survivor_rifle_complete_anim.xml");
+            topSprite.setOrigin(topSprite.getSize().x*0.4, topSprite.getSize().y/2.0);
             break;
         case 3:
-            topSprite.setColor(Color::Green);
+            topSprite.load("data/img/survivor/survivor_shotgun_complete.png", 179, 179, 0, 0, 0, 0, 11, 6, 63);
+            topSprite.loadAnimation("data/img/survivor/survivor_shotgun_complete_anim.xml");
+            topSprite.setOrigin(topSprite.getSize().x*0.4, topSprite.getSize().y/2.0);
             break;
         }
-
-        topSprite.setOrigin(topSprite.getSize().x/2.0, topSprite.getSize().y/2.0);
         //Necessário para atualizar a animação atual
         topState = Invalid;
     }

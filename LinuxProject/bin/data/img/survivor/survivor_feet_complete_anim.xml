@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Format:
+name   => name of the animation sequence
+start  => starting frame
+end    => ending frame
+loop   => looping animation (default)
+-->
+<animation name="survivor1_anim">
+    <sequence name="idle"  start="0" end="0" loop="true" />
+    <sequence name="run"  start="1" end="20" loop="true" />
+    <sequence name="strafe_left"  start="21" end="40" loop="true" />
+    <sequence name="strafe_right"  start="41" end="60" loop="true" />
+    <sequence name="strafe_right"  start="61" end="80" loop="true" />
+</animation>
