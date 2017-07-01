@@ -94,6 +94,7 @@ void GameplayState::endWave() {
     wave.number++;
     wave.isRunning = false;
     wave.totalEnemiesToKill += 5;
+    wave.killedEnemies = 0;
 }
 
 
@@ -214,7 +215,6 @@ void GameplayState::updatePhysics() {
             if (bullet->body == bptr) {
                 delete bullet;
                 bullets.erase(bullets.begin() + i);
-                cout << i << endl;
                 break;
             }
         }

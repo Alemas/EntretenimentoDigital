@@ -41,10 +41,10 @@ class GameplayState : public cgf::GameState
     struct Wave {
         int number;
         bool isRunning;
-        int totalEnemiesToKill;
+        int totalEnemiesToKill, killedEnemies;
     };
 
-    Wave wave = Wave{1, false, 10};
+    Wave wave = Wave{1, false, 10, 0};
 
     static GameplayState m_GameplayState;
 

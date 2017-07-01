@@ -82,7 +82,7 @@ void HUD::update(sf::RenderWindow* screen) {
     txtAmmo.setPosition(Vector2f(origin.x + viewSize.x - 50 - txtAmmo.getLocalBounds().width, origin.y + viewSize.y - 50 - txtAmmo.getLocalBounds().height));
     txtScore.setPosition(Vector2f(origin.x + viewSize.x - 50 - txtScore.getLocalBounds().width, origin.y + 20));
 
-    txtmsg.setPosition(Vector2f(center.x - txtmsg.getLocalBounds().width/2, center.y));
+    txtmsg.setPosition(Vector2f(center.x - txtmsg.getLocalBounds().width/2, origin.y + 250));
 
     shouldDisplayMessage = (clock.getElapsedTime() - lastMsgTime) < msgTime;
 

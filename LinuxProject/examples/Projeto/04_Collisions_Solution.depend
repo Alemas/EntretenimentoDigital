@@ -1178,7 +1178,7 @@
 	"GameState.h"
 	"GameplayState.h"
 
-1498845407 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/include/GameplayState.h
+1498872673 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/include/GameplayState.h
 	<iostream>
 	<GameState.h>
 	<InputManager.h>
@@ -1290,7 +1290,7 @@
 1497909201 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/SplashState.cpp
 	"SplashState.h"
 
-1498845407 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/GameplayState.cpp
+1498872651 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/GameplayState.cpp
 	"GameplayState.h"
 
 1494697715 source:c:\users\bruno\desktop\entretenimento\entretenimentodigital\linuxproject\examples\projeto\main.cpp
@@ -3833,7 +3833,7 @@
 
 1498510586 source:/home/hariel/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/Bullet.cpp
 
-1498846761 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/HUD.cpp
+1498851156 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/HUD.cpp
 	"HUD.h"
 
 1498844791 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/include/HUD.h
