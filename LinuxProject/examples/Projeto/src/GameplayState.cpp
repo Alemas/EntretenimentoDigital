@@ -196,7 +196,7 @@ void GameplayState::draw(cgf::Game* game) {
         screen->draw(bullet->sprite);
     }
 
-    physics->drawDebugData();
+//    physics->drawDebugData();
 
     hud.draw(screen);
 

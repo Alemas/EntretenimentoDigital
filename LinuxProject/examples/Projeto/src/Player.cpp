@@ -70,7 +70,13 @@ void Player::init() {
                         zero, zero, zero,
                         seconds(0.6), coolDown, coolDown};
 
+    feetSprite.load("data/img/survivor/survivor_feet_complete.png", 102, 102, 0, 0, 0, 0, 5, 17, 81);
+    feetSprite.loadAnimation("data/img/survivor/survivor_feet_complete_anim.xml");
+    feetSprite.setAnimRate(30);
+    feetSprite.setOrigin(Vector2f(feetSprite.getSize().x/2, feetSprite.getSize().y/2));
+
     updateState(Top_Idle);
+    updateFeetState(VECTOR_ZERO, false);
 
     physics = cgf::Physics::instance();
 
@@ -190,12 +196,30 @@ void Player::takeDamage(int damage) {
 
 
 void Player::draw(RenderWindow* screen) {
+
+    //Gambiarra para alinhar as pernas quando está usando rifle ou shotgun
+
+    float adjust = 1;
+    if (weapons[currentWeapon].type == Rifle || weapons[currentWeapon].type == Shotgun) adjust = 0.8;
+
+    Vector2f position = getPosition();
+    Vector2f rotatedOrigin = Calculator::rotatedPoint(Calculator::toRadians(topSprite.getRotation()), Vector2f(topSprite.getOrigin().x - feetSprite.getSize().x*adjust,
+                                                                                        topSprite.getOrigin().y - feetSprite.getSize().y + 10));
+    float x = position.x + rotatedOrigin.x;
+    float y = position.y + rotatedOrigin.y;
+
+    feetSprite.setPosition(Vector2f(x, y));
+    feetSprite.setRotation(topSprite.getRotation());
+
+    screen->draw(feetSprite);
     screen->draw(topSprite);
+
     //screen->draw(lookingLine, 2, Lines);
 }
 
 void Player::update(float updateTimeInterval) {
     topSprite.update(updateTimeInterval, false);
+    feetSprite.update(updateTimeInterval, false);
 
     if (reloading) {
         Time elapsedTime = clock.getElapsedTime() - lastReloadTime;
@@ -258,6 +282,7 @@ void Player::updateMovement(sf::Vector2i lookingPoint, sf::Vector2i moveDirectio
     }
 
     updateState(s);
+    updateFeetState(moveDirection, sprint);
 //    cout << moveDirection.x << ", " << moveDirection.y << endl;
 }
 
@@ -314,7 +339,7 @@ void Player::updateState(TopState state) {
             break;
 
         case Top_Run :
-            topSprite.setAnimRate(55);
+            topSprite.setAnimRate(30);
             topSprite.setAnimation("move");
             break;
 
@@ -352,4 +377,86 @@ void Player::updateState(TopState state) {
         topSprite.play();
     }
 }
+
+void Player::printFeetState(FeetState state) {
+    switch(state) {
+    case Feet_Idle:
+        cout << "Idle" << endl;
+        break;
+    case Walk:
+        cout << "Walk" << endl;
+        break;
+    case Run:
+        cout << "Run" << endl;
+        break;
+    case Strafe_Left:
+        cout << "Strafe Left" << endl;
+        break;
+    case Strafe_Right:
+        cout << "Strafe Right" << endl;
+        break;
+    }
+}
+
+void Player::updateFeetState(Vector2i direction, bool sprint) {
+
+    float angle = 0;
+    float x = direction.x;
+    float y = direction.y;
+
+    if (x == 0) {
+        if (y == -1) angle = 270;
+        if (y == 1) angle = 90;
+    }
+    if (x == 1) {
+        if (y == -1) angle = 315;
+        if (y == 1) angle = 45;
+    }
+    if (x == -1) {
+        if (y == -1) angle = 225;
+        if (y == 1) angle = 135;
+        if (y == 0) angle = 180;
+    }
+
+    float difference = -(topSprite.getRotation() - 360) - angle;
+
+    if (difference < 0) difference += 360;
+    if (difference > 360) difference -= 360;
+
+    FeetState newState;
+
+    if (difference <= 45 || difference > 315) newState = Walk;
+    if (difference > 45 && difference <= 135) newState = Strafe_Left;
+    if (difference > 135 && difference <= 225) newState = Walk;
+    if (difference > 225 && difference <= 315) newState = Strafe_Right;
+    if (direction == VECTOR_ZERO) newState = Feet_Idle;
+
+    if (newState == Walk && sprint) newState = Run;
+
+//    printFeetState(newState);
+
+    if (feetState != newState) {
+        switch(newState) {
+        case Feet_Idle:
+            feetSprite.setAnimation("idle");
+            break;
+        case Walk:
+            feetSprite.setAnimation("walk");
+            break;
+        case Run:
+            feetSprite.setAnimation("run");
+            break;
+        case Strafe_Left:
+            feetSprite.setAnimation("strafe_left");
+            break;
+        case Strafe_Right:
+            feetSprite.setAnimation("strafe_right");
+            break;
+        }
+        feetState = newState;
+        feetSprite.play();
+    }
+
+}
+
 

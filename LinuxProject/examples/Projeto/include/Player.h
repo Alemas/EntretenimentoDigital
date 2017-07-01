@@ -74,8 +74,8 @@ class Player
 
         cgf::Physics* physics;
 
-        FeetState feetState;
-        TopState topState = Reload;
+        FeetState feetState = Feet_Idle;
+        TopState topState = Invalid;
 
         int walkSpeed = 2000;
         int runSpeed = 3500;
@@ -88,6 +88,8 @@ class Player
         sf::Vertex lookingLine[2];
 
         void updateState(TopState state);
+        void updateFeetState(sf::Vector2i direction, bool sprint);
+        void printFeetState(FeetState state);
 };
 
 #endif // PLAYER_H

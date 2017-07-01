@@ -1189,7 +1189,7 @@
 	<tmx/MapLoader.h>
 	<SFML/Graphics.hpp>
 
-1498850958 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/include/Player.h
+1498933672 /home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/include/Player.h
 	<Sprite.h>
 	<iostream>
 	<Bullet.h>
@@ -1283,14 +1283,14 @@
 1497904934 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/MenuState.cpp
 	"MenuState.h"
 
-1498850899 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/Player.cpp
+1498937928 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/Player.cpp
 	"Player.h"
 	"GameplayState.h"
 
 1497909201 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/SplashState.cpp
 	"SplashState.h"
 
-1498872651 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/GameplayState.cpp
+1498937996 source:/home/mateus/Desktop/EntretenimentoDigital/LinuxProject/examples/Projeto/src/GameplayState.cpp
 	"GameplayState.h"
 
 1494697715 source:c:\users\bruno\desktop\entretenimento\entretenimentodigital\linuxproject\examples\projeto\main.cpp
